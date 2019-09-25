@@ -1,0 +1,20 @@
+{
+	"gitbook": "3.x",
+	"title": "Go语法树",
+	"description": "Go语法树",
+	"language": "zh-hans",
+
+	"structure": {
+		"readme": "preface.md"
+	},
+
+	"pluginsConfig": {
+		"theme-default": {
+			"showLevel": false
+		}
+	},
+
+	"plugins": [
+		"-search"
+	]
+}
