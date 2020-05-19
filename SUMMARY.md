@@ -10,4 +10,5 @@
 * [第8章 复合面值](ch8/readme.md)
 * [第9章 复合表达式](ch9/readme.md)
 * [第10章 语句块和语句](ch10/readme.md)
-
+* [第11章 类型检查](ch11/readme.md)
+* [第12章 goyacc](ch12/readme.md)
