@@ -208,7 +208,7 @@ myNodeVisitor.Visit: main
 
 ![](../images/ch4-file-struct-05.png)
 
-多个包可以构成完成的可执行程序。每个包内部通过文件组织代码的导入和声明语句。而单个文件可以由`parser.ParseFile`完成解析，文件内部的逻辑关系如下图：
+多个包可以构成完整的可执行程序。每个包内部通过文件组织代码的导入和声明语句。而单个文件可以由`parser.ParseFile`完成解析，文件内部的逻辑关系如下图：
 
 ![](../images/ch4-file-struct-04.png)
 
