@@ -151,7 +151,7 @@ IdentifierList = identifier { "," identifier } .
 ExpressionList = Expression { "," Expression } .
 ```
 
-ConstDecl定义了常量声明的语法，同样可以单独声明每个常量也可以小括弧包含按组声明常量。每个常量可以明确之类运行时类型，也可以有初始化表达式推导出常量的类型。
+ConstDecl定义了常量声明的语法，同样可以单独声明每个常量也可以小括弧包含按组声明常量。每个常量可以明确指定运行时类型，也可以由初始化表达式推导出常量的类型。
 
 以下代码展示了Pi和E两个数值型常量：
 
