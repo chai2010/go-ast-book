@@ -1,8 +1,8 @@
-# 第12章 goyacc
+# 附录A goyacc
 
 yacc是用于构造编译器的工具，而goyacc是Go语言版本的yacc，是从早期的C语言版本yacc移植到Go语言的。早期的goyacc是Go语言标准命令之一，也是构建Go自身编译器的必备工具链之一，后来被逐步移出了内置工具。但是goyacc依然是一个开发语法分析器的利器。本章简单展示如何用goyacc构建一个命令行计算器小程序。
 
-## 12.1 计算器的特性
+## A.1 计算器的特性
 
 特性简介：
 
@@ -23,7 +23,7 @@ x*2
 = 4
 ```
 
-## 12.2 词法符号
+## A.2 词法符号
 
 先创建`tok.h`文件，包含词法符号：
 
@@ -49,7 +49,7 @@ enum {
 
 其中`ILLEGAL`表示不能识别的无效的符号，`EOL`表示行的结尾，其它的符号与字面含义相同。
 
-## 12.3 词法解析
+## A.3 词法解析
 
 然后创建`calc.l`文件，定义每种词法的正则表达式：
 
@@ -111,7 +111,7 @@ YY_BUFFER_STATE yy_scan_bytes (yyconst char *bytes,yy_size_t len  );
 
 通过`yy_scan_bytes`函数，可以设置字符串作为要解析的目标，然后每次调用`yylex`函数就会从字符串读取数据。这些函数都在`calc.lex.h`文件中声明。
 
-## 将C语言词法分析器包装为Go函数
+## A.4 将C语言词法分析器包装为Go函数
 
 创建`lex.go`文件，内容如下：
 
@@ -164,7 +164,7 @@ func (p *calcLex) Lex(yylval *calcSymType) int {
 
 对应`ID`类型，`yytext`表示变量的名字。对于`NUMBER`类型，`yytext`保护数字对应的字符串，可以从字符串解析出数值。但是，Go语言的词法分析器如何返回变量的名字或者是数字的值呢？答案是通过`Lex`的`*calcSymType`类型的参数可以记录记号额外的属性值。而`calcSymType`类型是由`goyacc`工具生成的代码，在下面我们将介绍yacc的内容。
 
-## 12.4 `goyacc`生成语法解析器
+## A.5 `goyacc`生成语法解析器
 
 `goyacc`是Go语言版本的yacc工具，是由Go语言官方团队维护的扩展包工具。
 
@@ -258,7 +258,7 @@ func (p *calcLex) Lex(yylval *calcSymType) int {
 其中`yylval.id = yytext`表示词法将解析得到的变量名字填充到`id`属性中。而数字部分则是通过`yylval.value`属性保存。
 
 
-## 12.5 运行计算器
+## A.6 运行计算器
 
 创建main函数：
 
