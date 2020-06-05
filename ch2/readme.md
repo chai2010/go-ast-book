@@ -99,7 +99,7 @@ func main() {
 }
 ```
 
-其中`token.INT`表示基础面值的类型是整数，值是整数的十进制字符串表示。如果把`token.INT`改为`token.FLOAT`则变成浮点数的9527，如果改成`token.STRING`则会变成“7527”字符串面值。
+其中`token.INT`表示基础面值的类型是整数，值是整数的十进制字符串表示。如果把`token.INT`改为`token.FLOAT`则变成浮点数的9527，如果改成`token.STRING`则会变成“9527”字符串面值。
 
 ## 2.4 解析基础面值
 
