@@ -256,7 +256,7 @@ func main() {
 
 结构体面值依然是通过`ast.CompositeLit`结构体描述。结构体中成员的初始化通过`ast.KeyValueExpr`结构体初始化，Key部分为X表示成员名字，Value部分为X成员的初始值。
 
-当然，结构体的初始化也可以声明成员的名字：
+当然，结构体的初始化也可以不声明成员的名字：
 
 ```go
 func main() {

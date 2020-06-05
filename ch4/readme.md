@@ -150,7 +150,7 @@ func Print(fset *token.FileSet, x interface{}) error
 
 这是学习和调试语法树最重要的函数，通过其输出我们可以对语法树有一个直观的印象，从而为进一步分析处理语法树奠定基础。从`ast.Print`函数文档可以看出，它是`ast.Fprint`函数的再次包装（类似`fmt.Print`和`fmt.Fprint`函数的关系），这样我们不仅仅可以定义输出的目标，还可以通过过滤函数来控制要输出的内容。
 
-此外通过`ast.Walk`可以遍历真个语法树（和`filepath.Walk`遍历目录的思想类似）：
+此外通过`ast.Walk`可以遍历整个语法树（和`filepath.Walk`遍历目录的思想类似）：
 
 ```go
 type myNodeVisitor struct {}

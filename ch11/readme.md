@@ -173,7 +173,7 @@ func (p *Program) LoadPackage(path string) (pkg *types.Package, f *ast.File, err
 }
 ```
 
-因为没有初始化`types.Config`的`Importer`成员，因此目前该方法只能加载没有导入其他包的叶子类型的包（对应`math`包就是这种类型）。比如叶子类型的`math`包被加载成功之后，则会被记录到`Program`对象`ast`和`pkgs`成员中。然后当遇到已经被记录过的叶子包被导入时，就可以复用这些信息。
+因为没有初始化`types.Config`的`Importer`成员，因此目前该方法只能加载没有导入其他包的叶子类型的包（对应`math`包就是这种类型）。比如叶子类型的`math`包被加载成功之后，则会被记录到`Program`对象的`ast`和`pkgs`成员中。然后当遇到已经被记录过的叶子包被导入时，就可以复用这些信息。
 
 因此可以为`Program`类型实现`types.Importer`接口，只有一个`Import`方法：
 
@@ -242,6 +242,6 @@ func (p *Program) Import(path string) (*types.Package, error) {
 }
 ```
 
-当`pkgs`成员没有包信息时，通过`LoadPackage`方法加载。如果`LoadPackage`要导入的包时非叶子类型的包，会再次递归回到`Import`方法。因为Go语义禁止循环包导入，因此最终会在导入叶子包的时刻由`LoadPackage`函数返回结束递归。当然在真实的代码中，需要额外记录一个状态用于检查递归导入类型的错误。
+当`pkgs`成员没有包信息时，通过`LoadPackage`方法加载。如果`LoadPackage`要导入的包是非叶子类型的包，会再次递归回到`Import`方法。因为Go语义禁止循环包导入，因此最终会在导入叶子包的时刻由`LoadPackage`函数返回结束递归。当然在真实的代码中，需要额外记录一个状态用于检查递归导入类型的错误。
 
 这样我们就实现了一个支持递归包导入的功能，从而可以实现对于任何一个加载的语法树进行完整的类型检查。
