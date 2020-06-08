@@ -10,6 +10,7 @@ Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go�
 ![](cover.png)
 
 - 作者：柴树杉，Github [@chai2010](https://github.com/chai2010)，Twitter [@chaishushan](https://twitter.com/chaishushan)
+- 主页：https://github.com/chai2010/go-ast-book
 
 # 在线阅读
 
