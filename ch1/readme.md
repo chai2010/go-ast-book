@@ -45,7 +45,7 @@ continue     for          import       return       var
 type Token int
 ```
 
-所有的Token被分为三类：特殊类型的Token、基础面值对应的Token、运算符Token和关键字。
+所有的Token被分为四类：特殊类型的Token、基础面值对应的Token、运算符Token和关键字。
 
 ![](../images/ch1-token-01.png)
 
