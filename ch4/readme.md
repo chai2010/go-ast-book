@@ -26,7 +26,7 @@ TopLevelDecl  = Declaration | FunctionDecl | MethodDecl .
 Declaration   = ConstDecl | TypeDecl | VarDecl .
 ```
 
-SourceFile表示一个Go源文件，由PackageClause表示的包定义、ImportDecl表示的导入声明和TopLevelDecl表示顶级声明三个部分组成。其中TopLevelDecl又由通用声明、函数声明和方法声明组成，通用声明再分为常量、类型和变量声明。
+SourceFile表示一个Go源文件，由PackageClause表示的包定义、ImportDecl表示的导入声明和TopLevelDecl表示的顶级声明三个部分组成。其中TopLevelDecl又由通用声明、函数声明和方法声明组成，通用声明再分为常量、类型和变量声明。
 
 以下代码是一个Go源文件的例子：
 
@@ -96,7 +96,7 @@ type File struct {
 	// import: "b"
 ```
 
-但是结构体中最重要的其实是`File.Decls`成员，它包含来当前文件全部的包级声明信息（包含导入信息）。即使没有`File.Imports`成员，我们也可以从`File.Decls`声明列表中获取全部导入包的信息。
+但是结构体中最重要的其实是`File.Decls`成员，它包含了当前文件全部的包级声明信息（包含导入信息）。即使没有`File.Imports`成员，我们也可以从`File.Decls`声明列表中获取全部导入包的信息。
 
 通过以下的代码可以查看`File.Decls`每个成员的类型信息：
 
@@ -133,7 +133,7 @@ type File struct {
 
 ![](../images/ch4-file-struct-02.png)
 
-首先通过`parser.ParseFile`解析文件得到`*ast.File`类型的结构体。`*ast.File`结构体中Name包含来包名信息，Decls包含来全部的声明信息（声明分别对应`ast.GenDecl`和`ast.FuncDecl`两种类型），以及导入信息。
+首先通过`parser.ParseFile`解析文件得到`*ast.File`类型的结构体。`*ast.File`结构体中Name包含了包名信息，Decls包含了全部的声明信息（声明分别对应`ast.GenDecl`和`ast.FuncDecl`两种类型），以及导入信息。
 
 ## 4.3 诊断语法树
 
@@ -216,5 +216,5 @@ myNodeVisitor.Visit: main
 
 ![](../images/ch4-file-struct-03.png)
 
-声明部分包含基础声明和函数声明。基础声明包含导入声明、类型声明、常量声明和变量声明，它们都独立声明也可以按组方式声明，其中常量和变量的声明采用相同的结构表示。而函数声明不支持按组方式声明，函数声明主要包含接受者、函数参数和返回值组成的函数类型，以及函数的代码实现等信息。
+声明部分包含基础声明和函数声明。基础声明包含导入声明、类型声明、常量声明和变量声明，它们可以独立声明，也可以按组方式声明，其中常量和变量的声明采用相同的结构表示。而函数声明不支持按组方式声明，函数声明主要包含接受者、函数参数和返回值组成的函数类型，以及函数的代码实现等信息。
 

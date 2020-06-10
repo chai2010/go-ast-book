@@ -208,7 +208,7 @@ Declaration  = ConstDecl | TypeDecl | VarDecl .
 TopLevelDecl = Declaration | FunctionDecl | MethodDecl .
 ```
 
-其中Declaration就是函数体内部的声明语法，可以在函数内部声明常量、变量和类型，但是不能声明函数和方法。关于TopLevelDecl定义顶级常量、变量和类型声明我们已经讨论过，其中已经包含来函数内部的声明语法。我们这里以一个简单的例子展示如果在语句块中保存声明语句：
+其中Declaration就是函数体内部的声明语法，可以在函数内部声明常量、变量和类型，但是不能声明函数和方法。关于TopLevelDecl定义顶级常量、变量和类型声明我们已经讨论过，其中已经包含了函数内部的声明语法。我们这里以一个简单的例子展示如果在语句块中保存声明语句：
 
 ```go
 func main() {
