@@ -5,8 +5,12 @@ Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go�
 ![](cover.png)
 
 - 作者：柴树杉，Github [@chai2010](https://github.com/chai2010)，Twitter [@chaishushan](https://twitter.com/chaishushan)
+- 作者：史斌，Github [@benshi001](https://github.com/benshi001)
+- 作者：丁尔男，Github [@3dgen](https://github.com/benshi001)
+- 主页：https://github.com/chai2010/go-ast-book
+
 
 # 版权
 
-版权 [@柴树杉](https://github.com/chai2010)，仅授权在Github网站内Fork和阅读。如需离线下载、转载请联系作者。
+版权 [@柴树杉](https://github.com/chai2010)、[史斌](https://github.com/benshi001)和[丁尔男](https://github.com/3dgen)，仅授权在Github网站内Fork和阅读。如需离线下载、转载请联系作者。
 
