@@ -46,10 +46,10 @@ Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go�
 
 # 版权
 
-版权 [柴树杉](https://github.com/chai2010)、[史斌](https://github.com/benshi001)和[丁尔男](https://github.com/3dgen)，保留相关权力。为了保护读者的权益，我们和出版社沟通为读者争取到以下权利：
+版权 [柴树杉](https://github.com/chai2010)、[史斌](https://github.com/benshi001)和[丁尔男](https://github.com/3dgen)，保留相关权利。为了保护读者的权益，我们和出版社沟通为读者争取到以下权利：
 
 1. Github平台免费在线阅读。
 1. 关注本书项目(Star)，同时关注任意一个作者的 Github 或 推特账号，自动获得下载的权利。
 1. 通过 [微信](images/donate-weixin-github-chai2010-20yuan.jpg) 或 [支付宝](images/donate-alipay-github-chai2010-20yuan.jpg) 二维码支付 20元 获得 下载的权利。
 
-**禁止非 Github 平台转载，作者保留相关法律权力。**
+**禁止非 Github 平台转载，作者保留相关法律权利。**
