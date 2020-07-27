@@ -106,7 +106,7 @@ func main() {
 
 ![](../images/ch3-expr-01.png)
 
-其中`ast.BasicLit`是基础面值类型，在前面章节以及讲过。而`ast.BinaryExpr`是表示二元表达式的结点，其定义如下：
+其中`ast.BasicLit`是基础面值类型，在前面章节已经讲过。而`ast.BinaryExpr`是表示二元表达式的结点，其定义如下：
 
 ```go
 type BinaryExpr struct {
