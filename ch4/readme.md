@@ -22,11 +22,15 @@ SourceFile    = PackageClause ";" { ImportDecl ";" } { TopLevelDecl ";" } .
 PackageClause = "package" PackageName .
 PackageName   = identifier .
 
+ImportDecl    = "import" ( ImportSpec | "(" { ImportSpec ";" } ")" ) .
+ImportSpec    = [ "." | PackageName ] ImportPath .
+ImportPath    = string_lit .
+
 TopLevelDecl  = Declaration | FunctionDecl | MethodDecl .
 Declaration   = ConstDecl | TypeDecl | VarDecl .
 ```
 
-SourceFile表示一个Go源文件，由PackageClause表示的包定义、ImportDecl表示的导入声明和TopLevelDecl表示的顶级声明三个部分组成。其中TopLevelDecl又由通用声明、函数声明和方法声明组成，通用声明再分为导入包、常量、类型和变量声明。
+SourceFile表示一个Go源文件，由PackageClause表示的包定义、ImportDecl表示的导入声明和TopLevelDecl表示的顶级声明三个部分组成。其中TopLevelDecl又由通用声明、函数声明和方法声明组成，通用声明再分为常量、类型和变量声明。
 
 以下代码是一个Go源文件的例子：
 
