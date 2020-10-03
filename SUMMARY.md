@@ -11,7 +11,4 @@
 * [第9章 复合表达式](ch9/readme.md)
 * [第10章 语句块和语句](ch10/readme.md)
 * [第11章 类型检查](ch11/readme.md)
-* [第12章 语义信息](ch12/readme.md)
-* [第13章 SSA形式](ch13/readme.md)
-* [第14章 LLVM后端](ch14/readme.md)
 * [附录A goyacc](appendix/a-goyacc/readme.md)
