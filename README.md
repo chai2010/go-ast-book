@@ -10,7 +10,7 @@
 
 ----
 
-Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go语言自带的`go fmt`和`go doc`等命令都是在Go语法树的基础之上分析工具。因此将Go语言程序作为输入数据，让我们语法树这个维度重新审视Go语言程序，我们将得到创建Go语言本身的技术。Go语法树由标准库的`go/ast`包定义，它是在`go/token`包定义的词法基础只是抽象的语法树结构。本书简单介绍语法树相关包的使用。
+Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go语言自带的`go fmt`和`go doc`等命令都是在Go语法树的基础之上分析工具。因此将Go语言程序作为输入数据，让我们语法树这个维度重新审视Go语言程序，我们将得到创建Go语言本身的技术。Go语法树由标准库的`go/ast`包定义，它是在`go/token`包定义的词法基础只是抽象的语法树结构。本书简单介绍语法树相关包的使用（出版社已经约稿出版本书，并在开源版本的基础之上增加了语义信息、SSA形式、LLVM和凹语言等内容，因为出版社版权问题不方便全部公开新增内容）。
 
 ![](cover.png)
 
@@ -32,10 +32,7 @@ Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go�
 * [第9章 复合表达式](ch9/readme.md)
 * [第10章 语句块和语句](ch10/readme.md)
 * [第11章 类型检查](ch11/readme.md)
-* [第12章 语义信息](ch12/readme.md)
-* [第13章 SSA形式](ch13/readme.md)
-* [第14章 LLVM后端](ch14/readme.md)
-* [第15章 凹语言(TODO)](ch15/readme.md)
+* [第12章 凹语言(TODO)](ch12/readme.md)
 * [附录A goyacc](appendix/a-goyacc/readme.md)
 
 <!--
@@ -50,10 +47,9 @@ Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go�
 
 # 版权
 
-版权 [柴树杉](https://github.com/chai2010)、[史斌](https://github.com/benshi001)和[丁尔男](https://github.com/3dgen)，保留相关权利。为了保护读者的权益，我们和出版社沟通为读者争取到以下权利：
+版权 [柴树杉](https://github.com/chai2010)、[史斌](https://github.com/benshi001)和[丁尔男](https://github.com/3dgen)，保留相关权力。针对Github注册用户提供以下的优惠权利：
 
 1. Github平台免费在线阅读。
 1. 关注本书项目(Star)，同时关注任意一个作者的 Github 或 推特账号，自动获得下载的权利。
-1. 通过 [微信](images/donate-weixin-github-chai2010-20yuan.jpg) 或 [支付宝](images/donate-alipay-github-chai2010-20yuan.jpg) 二维码支付 20元 获得 下载的权利。
 
 **禁止非 Github 平台转载，作者保留相关法律权利。**
