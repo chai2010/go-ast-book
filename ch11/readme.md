@@ -97,7 +97,7 @@ func main() {
 hello.go:3:8: could not import math (Config.Importer not installed)
 ```
 
-错误产生的原因是`types.Config`类型的检查对象并不知道如何加载`math`包的信息。`types.Config`对象的`Importer`成员复杂导入依赖包，其定义如下：
+错误产生的原因是`types.Config`类型的检查对象并不知道如何加载`math`包的信息。`types.Config`对象的`Importer`成员负责导入依赖包，其定义如下：
 
 ```go
 type Config struct {
