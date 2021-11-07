@@ -117,7 +117,7 @@ type File struct {
 	// decl: *ast.FuncDecl
 ```
 
-分析输出结构可以发现前四个都是`*ast.GenDecl`类型，只有最后一个是`*ast.FuncDecl`类型。因此可以推测，`import`、`type`、`const`和`type`都是对应`*ast.GenDecl`类型，只有函数是独立的`*ast.FuncDecl`类型。
+分析输出结构可以发现前四个都是`*ast.GenDecl`类型，只有最后一个是`*ast.FuncDecl`类型。因此可以推测，`import`、`type`、`const`和`var`都是对应`*ast.GenDecl`类型，只有函数是独立的`*ast.FuncDecl`类型。
 
 因此我们也可以从`f.Decls`列表中获取导入包的信息：
 
