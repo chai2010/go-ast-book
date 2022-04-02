@@ -6,8 +6,8 @@
 
 ----
 
-- [蚂蚁 - 可信原生技术部 - 云原生运维专家(杭州P7-8)](https://github.com/chai2010/chai2010/blob/master/jobs.md)
-- [蚂蚁 - 可信原生技术部 - 专用编程语言设计研发(杭州P7-8)](https://github.com/chai2010/chai2010/blob/master/jobs.md)
+- 京东：https://item.jd.com/13698866.html
+- 异步：https://www.epubit.com/bookDetails?id=UBc86f749c1eb7
 
 ----
 
