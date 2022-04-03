@@ -9,18 +9,22 @@ Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go�
 - 作者：柴树杉，Github [@chai2010](https://github.com/chai2010)，Twitter [@chaishushan](https://twitter.com/chaishushan)
 - 作者：史斌，Github [@benshi001](https://github.com/benshi001)
 - 作者：丁尔男，Github [@3dgen](https://github.com/3dgen)
-- 主页：https://github.com/chai2010/go-ast-book
+- 主页：[https://github.com/chai2010/go-ast-book](https://github.com/chai2010/go-ast-book)
 
 ## 购买链接：
 
-- 京东：https://item.jd.com/13698866.html
-- 异步：https://www.epubit.com/bookDetails?id=UBc86f749c1eb7
+- 京东：[https://item.jd.com/13698866.html](https://item.jd.com/13698866.html)
+- 异步：[https://www.epubit.com/bookDetails?id=UBc86f749c1eb7](https://www.epubit.com/bookDetails?id=UBc86f749c1eb7)
 
 <!--
 如果你喜欢本书，欢迎到豆瓣评论：
 
 - https://book.douban.com/subject/34442131/
 -->
+
+# 在线阅读
+
+- [https://chai2010.cn/go-ast-book/](https://chai2010.cn/go-ast-book/)
 
 # 版权
 
