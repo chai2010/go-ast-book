@@ -14,6 +14,7 @@ Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go�
 ## 购买链接：
 
 - 京东：[https://item.jd.com/13698866.html](https://item.jd.com/13698866.html)
+- 当当：[https://product.dangdang.com/29388202.html](https://product.dangdang.com/29388202.html)
 - 异步：[https://www.epubit.com/bookDetails?id=UBc86f749c1eb7](https://www.epubit.com/bookDetails?id=UBc86f749c1eb7)
 
 <!--
