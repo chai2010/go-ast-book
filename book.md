@@ -18,11 +18,9 @@ Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go�
 - 当当：[https://product.dangdang.com/29388202.html](https://product.dangdang.com/29388202.html)
 - 异步：[https://www.epubit.com/bookDetails?id=UBc86f749c1eb7](https://www.epubit.com/bookDetails?id=UBc86f749c1eb7)
 
-<!--
 如果你喜欢本书，欢迎到豆瓣评论：
 
-- https://book.douban.com/subject/34442131/
--->
+- [https://book.douban.com/subject/35852237](https://book.douban.com/subject/35852237)
 
 # 微信公众号
 
