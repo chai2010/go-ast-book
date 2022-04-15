@@ -128,7 +128,7 @@ type Int2 pkg.int
 21  }
 ```
 
-对比两个结果可以发现，Int1的Type定义对应的是`*ast.Ident`表示一个标识符，而Int2的Type定义对应的时候`*ast.SelectorExpr`表示是其它包的命名类型。`*ast.SelectorExp`结构体定义如下：
+对比两个结果可以发现，Int1的Type定义对应的是`*ast.Ident`表示一个标识符，而Int2的Type定义对应的是`*ast.SelectorExpr`表示是其它包的命名类型。`*ast.SelectorExp`结构体定义如下：
 
 ```go
 type SelectorExpr struct {
