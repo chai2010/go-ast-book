@@ -1,5 +1,10 @@
 # 《Go语言定制指南》（原名：Go语法树入门）
 
+- *KusonStack一站式可编程配置技术栈: https://github.com/KusionStack/kusion*
+- *KCL配置编程语言: https://github.com/KusionStack/KCLVM*
+
+---
+
 Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go语言自带的`go fmt`和`go doc`等命令都是在Go语法树的基础之上分析工具。因此将Go语言程序作为输入数据，让我们语法树这个维度重新审视Go语言程序，我们将得到创建Go语言本身的技术。Go语法树由标准库的`go/ast`包定义，它是在`go/token`包定义的词法基础之上抽象的语法树结构。本书简单介绍语法树相关包的使用。如果想从头实现一个玩具Go语言可以参考[《从头实现µGo语言》](https://github.com/chai2010/ugo-compiler-book)。
 
 ---
