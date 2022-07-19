@@ -1,6 +1,6 @@
 # 目录
 
-[Go语言定制指南](book.md)
+[Go语言定制指南](index.md)
 [前言](preface.md)
 
 * [第1章 记号](ch1/readme.md)
