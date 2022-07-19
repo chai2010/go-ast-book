@@ -1,9 +1,9 @@
 // https://giscus.app
 
 const data_repo = "chai2010/go-ast-book";
-const data_repo_id = "R_kgDOHXaBHg";
+const data_repo_id = "MDEwOlJlcG9zaXRvcnkxNjAyNzI5NDg=";
 const data_category = "General";
-const data_category_id = "DIC_kwDOHFP9Xc4COUDN";
+const data_category_id = "DIC_kwDOCY2SNM4CQUHb";
 
 var initAll = function () {
     var path = window.location.pathname;
