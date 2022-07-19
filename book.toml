@@ -10,6 +10,8 @@ src = "."
 build-dir = "book"
 
 [output.html]
+additional-css = ["style.css"]
+additional-js = ["custom.js", "bigPicture.js"]
 git-repository-url = "https://github.com/chai2010/go-ast-book"
 edit-url-template = "https://github.com/chai2010/go-ast-book/edit/master/{path}"
 git-repository-icon = "fa-github"
