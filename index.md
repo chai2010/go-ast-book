@@ -2,6 +2,7 @@
 
 - *KusonStack一站式可编程配置技术栈: https://github.com/KusionStack/kusion*
 - *KCL配置编程语言: https://github.com/KusionStack/KCLVM*
+- *凹语言™: https://github.com/wa-lang/wa*
 
 ---
 
