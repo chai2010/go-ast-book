@@ -1,7 +1,10 @@
+# https://giscus.app
+# https://github.com/badboy/mdbook-mermaid
+
 [book]
 title = "Go语言定制指南"
 authors = ["柴树杉", "史斌", "丁尔男"]
-description = "从Go语法书开始定制自己的语言"
+description = "从Go语法树开始定制自己的语言"
 language = "zh"
 multilingual = false
 src = "."
@@ -9,7 +12,12 @@ src = "."
 [build]
 build-dir = "book"
 
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
 [output.html]
+additional-css = ["style.css"]
+additional-js = ["js/custom.js", "js/bigPicture.js", "js/mermaid.min.js", "js/mermaid-init.js"]
 git-repository-url = "https://github.com/chai2010/go-ast-book"
 edit-url-template = "https://github.com/chai2010/go-ast-book/edit/master/{path}"
 git-repository-icon = "fa-github"

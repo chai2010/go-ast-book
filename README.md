@@ -1,8 +1,7 @@
 # 《Go语言定制指南》（原名：Go语法树入门）
 
-- *Go语言QQ群: 102319854, 1055927514*
-- *光谷码农课堂: https://study.163.com/provider/480000001914454/index.htm*
-- *凹语言(凹读音“Wa”)(The Wa Programming Language): https://github.com/wa-lang/wa*
+- *KusonStack一站式可编程配置技术栈: https://github.com/KusionStack/kusion*
+- *凹语言™: https://github.com/wa-lang/wa*
 
 ----
 
@@ -26,6 +25,15 @@ Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go�
 如果你喜欢本书，欢迎到豆瓣评论：
 
 - https://book.douban.com/subject/35852237
+
+# MdBook 构建
+
+增加了基于 Github 的 [留言功能](https://giscus.app) 和 [mermaid](https://mermaidjs.github.io/) 绘图功能，需要安装以下工具:
+
+- https://github.com/rust-lang/mdBook
+- https://github.com/badboy/mdbook-mermaid
+
+然后执行 `mdbook serve` 本地打开服务，或者 `mdbook build` 构建。
 
 # 微信公众号
 
