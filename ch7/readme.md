@@ -52,7 +52,7 @@ TypeDef   = identifier Type .
 Type      = identifier | PackageName "." identifier .
 ```
 
-Type表示已有的命名类型，可以是当前包的类型，也是可以其它包的类型。下面是这些类型的例子：
+Type表示已有的命名类型，可以是当前包的类型，也可以是其它包的类型。下面是这些类型的例子：
 
 ```go
 type Int1 int
