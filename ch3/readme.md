@@ -151,7 +151,7 @@ func EvalBinaryExpr(exp *ast.BinaryExpr) float64 {
 }
 ```
 
-其中Eval函数用于递归解析表达式，如果是二元表达式`*ast.BinaryExpr`类型则调用EvalBinaryExpr进行解析，如果是`*ast.BasicLit`面值类型则直接用`strconv.ParseFloat`解析浮点数面值。EvalBinaryExpr函数用于解析二元表达式，这里为了简单只展示的加法和乘法类型的运算符，然后在加法或乘法的左右子表达式中再调用Eval解析。
+其中Eval函数用于递归解析表达式，如果是二元表达式`*ast.BinaryExpr`类型则调用EvalBinaryExpr进行解析，如果是`*ast.BasicLit`面值类型则直接用`strconv.ParseFloat`解析浮点数面值。EvalBinaryExpr函数用于解析二元表达式，这里为了简单只展示了加法和乘法类型的运算符，然后在加法或乘法的左右子表达式中再调用Eval解析。
 
 Go语言中，表达式是所有运算的基础。很多功能性的函数也可以作为表达式的一个部分参与运算。如果表达式中再引入变量和函数就变得异常强大了。
 
