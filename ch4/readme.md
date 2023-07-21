@@ -206,7 +206,7 @@ myNodeVisitor.Visit: main
 
 所以说，语法树的很多处理原理是相通的，`ast.Inspect`函数只是`ast.Walk`更简化版的包装而已。有了语法树之后，对import进行花样排序就变成了对`File.Decls`列表元素的处理问题。
 
-## 4.5 总结
+## 4.4 总结
 
 `parser.ParseDir`解析目录结构返回包含多个包的map，返回包的总体逻辑关系如下图所示：
 
