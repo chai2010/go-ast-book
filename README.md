@@ -1,7 +1,6 @@
 # 《Go语言定制指南》（原名：Go语法树入门）
 
 - *凹语言(专为 WebAssembly 设计): https://github.com/wa-lang/wa*
-- *KCL 配置语言(Rust): https://github.com/kcl-lang/kcl*
 
 ----
 
