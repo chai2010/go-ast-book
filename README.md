@@ -25,14 +25,13 @@ Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go�
 
 - https://book.douban.com/subject/35852237
 
-# MdBook 构建
+# MnBook 构建(纯Go语言实现)
 
-增加了基于 Github 的 [留言功能](https://giscus.app) 和 [mermaid](https://mermaidjs.github.io/) 绘图功能，需要安装以下工具:
+增加了基于 Github 的 [留言功能](https://giscus.app) 构建:
 
-- https://github.com/rust-lang/mdBook
-- https://github.com/badboy/mdbook-mermaid
+- https://github.com/wa-lang/mnBook
 
-然后执行 `mdbook serve` 本地打开服务，或者 `mdbook build` 构建。
+然后执行 `mnbook serve` 本地打开服务，或者 `mnbook build` 构建。
 
 # 微信公众号
 
