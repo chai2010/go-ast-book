@@ -1,0 +1,447 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using https://github.com/wa-lang/wabook -->
+        <meta charset="UTF-8">
+        <title>第11章 类型检查 - Go语言定制指南</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../static/wabook/css/variables.css">
+        <link rel="stylesheet" href="../static/wabook/css/general.css">
+        <link rel="stylesheet" href="../static/wabook/css/chrome.css">
+        <link rel="stylesheet" href="../static/wabook/css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../static/wabook/FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../static/wabook/fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../static/wabook/highlight.css">
+        <link rel="stylesheet" href="../static/wabook/tomorrow-night.css">
+        <link rel="stylesheet" href="../static/wabook/ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('wabook-theme');
+                var sidebar = localStorage.getItem('wabook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('wabook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('wabook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('wabook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('wabook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter">
+  <li class="chapter-item expanded ">
+    <a href="../index.html" >Go语言定制指南</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../preface.html" >前言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch1/readme.html" ><strong aria-hidden="true">1.</strong> 第1章 记号</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch2/readme.html" ><strong aria-hidden="true">2.</strong> 第2章 基础面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch3/readme.html" ><strong aria-hidden="true">3.</strong> 第3章 基础表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch4/readme.html" ><strong aria-hidden="true">4.</strong> 第4章 代码结构</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch5/readme.html" ><strong aria-hidden="true">5.</strong> 第5章 通用声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch6/readme.html" ><strong aria-hidden="true">6.</strong> 第6章 函数声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch7/readme.html" ><strong aria-hidden="true">7.</strong> 第7章 复合类型</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch8/readme.html" ><strong aria-hidden="true">8.</strong> 第8章 复合面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch9/readme.html" ><strong aria-hidden="true">9.</strong> 第9章 复合表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch10/readme.html" ><strong aria-hidden="true">10.</strong> 第10章 语句块和语句</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch11/readme.html" class="active"><strong aria-hidden="true">11.</strong> 第11章 类型检查</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch12/readme.html" ><strong aria-hidden="true">12.</strong> 第12章 语义信息</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch13/readme.html" ><strong aria-hidden="true">13.</strong> 第13章 SSA形式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch14/readme.html" ><strong aria-hidden="true">14.</strong> 第14章 凹语言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch15/readme.html" ><strong aria-hidden="true">15.</strong> 第15章 LLVM简介</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch16/readme.html" ><strong aria-hidden="true">16.</strong> 第16章 LLVM实例</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/a-goyacc/readme.html" >附录A goyacc</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/b-antlr4/readme.html" >附录B ANTLR4</a>
+  </li>
+</ol>
+
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title"><a href="../index.html">Go语言定制指南</a></h1>
+
+                    <div class="right-buttons">
+                        <a href="https://github.com/chai2010/go-ast-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/chai2010/go-ast-book/edit/master/ch11/readme.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                    <main>
+                        <ul dir="auto"><li><em>凹语言(Go实现, 面向WASM设计): <a href="https://github.com/wa-lang/wa">https://github.com/wa-lang/wa</a></em></li><li><em>WaBook(Go语言实现的MD电子书构建工具): <a href="https://github.com/wa-lang/wabook">https://github.com/wa-lang/wabook</a></em></li></ul><hr>
+
+                        <h1>第11章 类型检查</h1>
+<p>主流的编译器前端遵循词法解析、语法解析、语义解析等流程，然后才是基于中间表示的层层优化并最终产生目标代码。在得到抽象的语法树之后就表示完成了语法解析的工作。不过在进行中间优化或代码生成之前还需要对抽象语法树进行语义分析。语义分析需要更深层次理解代码的语义，比如两个变量相加是否合法，外层作用域有多个同名的变量时如何选择等。本章简单讨论<code>go/types</code>包的用法，展示如何通过该包实现语法树的类型检查功能。</p>
+<h2>11.1 语义错误</h2>
+<p>虽然Go语言是基于包和目录来组织代码，但是Go语言在语法树解析阶段并不关心包之间的依赖关系。这是因为在语法树解析阶段并不对代码本身做语义检测，因此很多语法正确但是语义错误的代码也可以生成语法树。</p>
+<p>比如以下这个例子：</p>
+<pre><code class="language-go">func main() {
+	fset := token.NewFileSet()
+	f, err := parser.ParseFile(fset, &quot;hello.go&quot;, src, parser.AllErrors)
+	if err != nil {
+		log.Fatal(err)
+	}
+	ast.Print(fset, f)
+}
+
+const src = `package pkg
+
+func hello() {
+	var _ = &quot;a&quot; + 1
+}
+`
+</code></pre>
+<p>在被解析的代码的<code>hello</code>函数，可以正常生成语法树。但是<code>hello</code>函数中唯一的语句<code>var _ = &quot;a&quot; + 1</code>的语义却是错误的，因为Go语言中不能将一个字符串和一个数字进行相加。如何识别这种语义层面的错误是<code>go/types</code>包需要完成的工作。</p>
+<h2>11.2 <code>go/types</code>包</h2>
+<p><code>go/types</code>包是Go语言之父Robert Griesemer大神（发明了Go语言的接口等特性）开发的类型检查工具.该包从Go1.5时代开始被添加到标准库，是Go语言自举过程中的一个额外成果。据说这个包是Go语言标准库中代码量最大的一个包，也是功能最复杂的一个包（在使用之前需要对Go语法树有一定的基础知识）。这里我们将使用<code>go/types</code>包来检查之前例子中的语法错误。</p>
+<p>重新调整代码如下：</p>
+<pre><code class="language-go">func main() {
+	fset := token.NewFileSet()
+	f, err := parser.ParseFile(fset, &quot;hello.go&quot;, src, parser.AllErrors)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	pkg, err := new(types.Config).Check(&quot;hello.go&quot;, fset, []*ast.File{f}, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	_ = pkg
+}
+
+const src = `package pkg
+
+func hello() {
+	var _ = &quot;a&quot; + 1
+}
+`
+</code></pre>
+<p>在通过<code>parser.ParseFile</code>解析单文件得到语法树之后，通过<code>new(types.Config).Check</code>函数来解析语法树中的语义错误。<code>new(types.Config)</code>首先是构造一个用于类型检查的配置对象，然后调用其唯一的<code>Check</code>方法检测语法树的语义。<code>Check</code>方法的签名如下：</p>
+<pre><code class="language-go">func (conf *Config) Check(path string, fset *token.FileSet, files []*ast.File, info *Info) (*Package, error)
+</code></pre>
+<p>第一个参数表示要检查包的路径，第二个参数表示全部的文件集合（用于将语法树中元素的位置信息解析为文件名和行列号），第三个参数是该包中所有文件对应的语法树，最后一个参数可用于存储检查过程中产生的分析结果。如果成功该方法返回一个<code>types.Package</code>对象，表示当前包的信息。</p>
+<p>运行这个程序将产生以下的错误信息：</p>
+<pre><code>$ go run .
+hello.go:4:10: cannot convert &quot;a&quot; (untyped string constant) to untyped int
+</code></pre>
+<p>错误提示在<code>hello.go</code>文件的第4行第10个字符位置的<code>&quot;a&quot;</code>字符串语法错误，无法将字符串常量转化为无类型的<code>int</code>类型。这样我们就可以轻易定位代码中出现错误的位置和错误产生的原因。</p>
+<h2>11.3 跨包的类型检查</h2>
+<p>真实的代码总是由多个包组成的，而<code>go/parser</code>包只处理当前包，如何处理导入包的类型是一个重要问题。比如有以下的代码：</p>
+<pre><code class="language-go">package main
+
+import &quot;math&quot;
+
+func main() {
+	var _ = &quot;a&quot; + math.Pi
+}
+</code></pre>
+<p>代码导入的是<code>math</code>包，然后引用了其中的<code>math.Pi</code>元素。要验证当前代码是否语义正确的前提，首先需要获取<code>math.Pi</code>元素的类型，因此首先要处理包的导入问题。</p>
+<p>如果依然采用<code>new(types.Config).Check</code>方式验证将得到以下的错误：</p>
+<pre><code>hello.go:3:8: could not import math (Config.Importer not installed)
+</code></pre>
+<p>错误产生的原因是<code>types.Config</code>类型的检查对象并不知道如何加载<code>math</code>包的信息。<code>types.Config</code>对象的<code>Importer</code>成员负责导入依赖包，其定义如下：</p>
+<pre><code class="language-go">type Config struct {
+	Importer Importer
+}
+
+type Importer interface {
+	Import(path string) (*Package, error)
+}
+</code></pre>
+<p>对于任何一个导入包都会调用<code>Import(path string) (*Package, error)</code>加载导入信息，然后才能获取包中导出元素的信息。</p>
+<p>对于标准库的<code>math</code>包，可以采用<code>go/importer</code>提供的默认包导入实现。代码如下：</p>
+<pre><code class="language-go">	// import &quot;go/importer&quot;
+	conf := types.Config{Importer: importer.Default()}
+	pkg, err := conf.Check(&quot;hello.go&quot;, fset, []*ast.File{f}, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+</code></pre>
+<p>其中<code>types.Config</code>对象的<code>Importer</code>成员对应包导入对象，由<code>importer.Default()</code>初始化。然后就可以正常处理输入代码了。</p>
+<p>不过<code>importer.Default()</code>处理的是Go语义当前环境的代码结构。Go语义代码结构是比较复杂的，其中包含标准库和用户的模块代码，每个包还可能启动了CGO特性。为了便于理解，我们可以手工构造一个简单的<code>math</code>包，因此包导入过程也可以简化。</p>
+<p>为了简化，我们继续假设每个包只有一个源代码文件。定义<code>Program</code>结构体表示一个完整的程序对象，代码如下：</p>
+<pre><code class="language-go">type Program struct {
+	fs   map[string]string
+	ast  map[string]*ast.File
+	pkgs map[string]*types.Package
+	fset *token.FileSet
+}
+
+func NewProgram(fs map[string]string) *Program {
+	return &amp;Program{
+		fs:   fs,
+		ast:  make(map[string]*ast.File),
+		pkgs: make(map[string]*types.Package),
+		fset: token.NewFileSet(),
+	}
+}
+</code></pre>
+<p>其中<code>fs</code>表示每个包对应的源代码字符串，<code>ast</code>表示每个包对应的语法树，<code>pkgs</code>表示经过语义检查的包对象，<code>fset</code>则表示文件的位置信息。</p>
+<p>首先为<code>Program</code>类型增加包加载<code>LoadPackage</code>方法：</p>
+<pre><code class="language-go">func (p *Program) LoadPackage(path string) (pkg *types.Package, f *ast.File, err error) {
+	if pkg, ok := p.pkgs[path]; ok {
+		return pkg, p.ast[path], nil
+	}
+
+	f, err = parser.ParseFile(p.fset, path, p.fs[path], parser.AllErrors)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	conf := types.Config{Importer: nil}
+	pkg, err = conf.Check(path, p.fset, []*ast.File{f}, nil)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	p.ast[path] = f
+	p.pkgs[path] = pkg
+	return pkg, f, nil
+}
+</code></pre>
+<p>因为没有初始化<code>types.Config</code>的<code>Importer</code>成员，因此目前该方法只能加载没有导入其他包的叶子类型的包（对应<code>math</code>包就是这种类型）。比如叶子类型的<code>math</code>包被加载成功之后，则会被记录到<code>Program</code>对象的<code>ast</code>和<code>pkgs</code>成员中。然后当遇到已经被记录过的叶子包被导入时，就可以复用这些信息。</p>
+<p>因此可以为<code>Program</code>类型实现<code>types.Importer</code>接口，只有一个<code>Import</code>方法：</p>
+<pre><code class="language-go">func (p *Program) Import(path string) (*types.Package, error) {
+	if pkg, ok := p.pkgs[path]; ok {
+		return pkg, nil
+	}
+	return nil, fmt.Errorf(&quot;not found: %s&quot;, path)
+}
+</code></pre>
+<p>现在<code>Program</code>类型实现了<code>types.Importer</code>接口，就可以用于<code>types.Config</code>的包加载工作：</p>
+<pre><code class="language-go">func (p *Program) LoadPackage(path string) (pkg *types.Package, f *ast.File, err error) {
+	// ...
+
+	conf := types.Config{Importer: p} // 用 Program 作为包导入器
+	pkg, err = conf.Check(path, p.fset, []*ast.File{f}, nil)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	// ...
+}
+</code></pre>
+<p>然后可以通过手工方式先加载叶子类型的<code>math</code>包，然后再加载主包：</p>
+<pre><code class="language-go">func main() {
+	prog := NewProgram(map[string]string{
+		&quot;hello&quot;: `
+			package main
+			import &quot;math&quot;
+			func main() { var _ = 2 * math.Pi }
+		`,
+		&quot;math&quot;: `
+			package math
+			const Pi = 3.1415926
+		`,
+	})
+
+	_, _, err := prog.LoadPackage(&quot;math&quot;)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	pkg, f, err := prog.LoadPackage(&quot;hello&quot;)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+</code></pre>
+<p>这种依赖包的导入包的加载是递归的，因此可以在导入环节的<code>Import</code>方法增加递归处理：</p>
+<pre><code class="language-go">func (p *Program) Import(path string) (*types.Package, error) {
+	if pkg, ok := p.pkgs[path]; ok {
+		return pkg, nil
+	}
+	pkg, _, err := p.LoadPackage(path)
+	return pkg, err
+}
+</code></pre>
+<p>当<code>pkgs</code>成员没有包信息时，通过<code>LoadPackage</code>方法加载。如果<code>LoadPackage</code>要导入的包是非叶子类型的包，会再次递归回到<code>Import</code>方法。因为Go语义禁止循环包导入，因此最终会在导入叶子包的时刻由<code>LoadPackage</code>函数返回结束递归。当然在真实的代码中，需要额外记录一个状态用于检查递归导入类型的错误。</p>
+<p>这样我们就实现了一个支持递归包导入的功能，从而可以实现对于任何一个加载的语法树进行完整的类型检查。</p>
+
+
+                        
+
+                        
+                            <div id="giscus-container"></div>
+                        
+
+                        
+                            <footer class="page-footer">
+                                <span>© 2019-2022 | <a href="https://github.com/chai2010/go-ast-book">柴树杉、史斌、丁尔男</a> 保留所有权利</span>
+                            </footer>
+                        
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../ch10/readme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                            <!-- ../ch12/readme.html -->
+                            <a rel="next" href="../ch12/readme.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../ch10/readme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                
+                    <a rel="next" href="../ch12/readme.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../static/wabook/mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+            var pagePath = "ch11/readme.md"
+        </script>
+
+        <!-- Custom JS scripts -->
+        
+            <script src="../static/wabook/giscus.js" type="text/javascript" charset="utf-8"></script>
+        
+
+    </body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using https://github.com/wa-lang/wabook -->
+        <meta charset="UTF-8">
+        <title>第8章 复合面值 - Go语言定制指南</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../static/wabook/css/variables.css">
+        <link rel="stylesheet" href="../static/wabook/css/general.css">
+        <link rel="stylesheet" href="../static/wabook/css/chrome.css">
+        <link rel="stylesheet" href="../static/wabook/css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../static/wabook/FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../static/wabook/fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../static/wabook/highlight.css">
+        <link rel="stylesheet" href="../static/wabook/tomorrow-night.css">
+        <link rel="stylesheet" href="../static/wabook/ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('wabook-theme');
+                var sidebar = localStorage.getItem('wabook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('wabook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('wabook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('wabook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('wabook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter">
+  <li class="chapter-item expanded ">
+    <a href="../index.html" >Go语言定制指南</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../preface.html" >前言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch1/readme.html" ><strong aria-hidden="true">1.</strong> 第1章 记号</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch2/readme.html" ><strong aria-hidden="true">2.</strong> 第2章 基础面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch3/readme.html" ><strong aria-hidden="true">3.</strong> 第3章 基础表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch4/readme.html" ><strong aria-hidden="true">4.</strong> 第4章 代码结构</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch5/readme.html" ><strong aria-hidden="true">5.</strong> 第5章 通用声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch6/readme.html" ><strong aria-hidden="true">6.</strong> 第6章 函数声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch7/readme.html" ><strong aria-hidden="true">7.</strong> 第7章 复合类型</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch8/readme.html" class="active"><strong aria-hidden="true">8.</strong> 第8章 复合面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch9/readme.html" ><strong aria-hidden="true">9.</strong> 第9章 复合表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch10/readme.html" ><strong aria-hidden="true">10.</strong> 第10章 语句块和语句</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch11/readme.html" ><strong aria-hidden="true">11.</strong> 第11章 类型检查</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch12/readme.html" ><strong aria-hidden="true">12.</strong> 第12章 语义信息</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch13/readme.html" ><strong aria-hidden="true">13.</strong> 第13章 SSA形式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch14/readme.html" ><strong aria-hidden="true">14.</strong> 第14章 凹语言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch15/readme.html" ><strong aria-hidden="true">15.</strong> 第15章 LLVM简介</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch16/readme.html" ><strong aria-hidden="true">16.</strong> 第16章 LLVM实例</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/a-goyacc/readme.html" >附录A goyacc</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/b-antlr4/readme.html" >附录B ANTLR4</a>
+  </li>
+</ol>
+
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title"><a href="../index.html">Go语言定制指南</a></h1>
+
+                    <div class="right-buttons">
+                        <a href="https://github.com/chai2010/go-ast-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/chai2010/go-ast-book/edit/master/ch8/readme.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                    <main>
+                        <ul dir="auto"><li><em>凹语言(Go实现, 面向WASM设计): <a href="https://github.com/wa-lang/wa">https://github.com/wa-lang/wa</a></em></li><li><em>WaBook(Go语言实现的MD电子书构建工具): <a href="https://github.com/wa-lang/wabook">https://github.com/wa-lang/wabook</a></em></li></ul><hr>
+
+                        <h1>第8章 复合面值</h1>
+<p>在基础面值章节，我们已经见过整数、浮点数、复数、字符和字符串等一些简单的面值。除了基础面值之外，还有结构体面值、map面值和函数面值等。本节讨论复合面值的语法树表示。</p>
+<h2>8.1 面值的语法</h2>
+<p>在Go语言规范文档中，完整的面值语法由Literal定义，具体如下：</p>
+<pre><code>Literal       = BasicLit | CompositeLit | FunctionLit .
+
+BasicLit      = int_lit | float_lit | imaginary_lit | rune_lit | string_lit .
+
+CompositeLit  = LiteralType LiteralValue .
+LiteralType   = StructType | ArrayType | &quot;[&quot; &quot;...&quot; &quot;]&quot; ElementType |
+                SliceType | MapType | TypeName .
+LiteralValue  = &quot;{&quot; [ ElementList [ &quot;,&quot; ] ] &quot;}&quot; .
+ElementList   = KeyedElement { &quot;,&quot; KeyedElement } .
+KeyedElement  = [ Key &quot;:&quot; ] Element .
+Key           = FieldName | Expression | LiteralValue .
+FieldName     = identifier .
+Element       = Expression | LiteralValue .
+</code></pre>
+<p>其中BasicLit是基础面值，CompositeLit是复合面值，FunctionLit是函数面值。其中复合类型和函数类型均已经讨论过，而其面值正是在复合类型和函数类型基础之上扩展而来。</p>
+<h2>8.2 函数面值</h2>
+<p>虽然函数面值不在复合类型面值之类，但是函数面值和函数声明非常相似，因此我们先看下函数面值。函数面值的语法如下：</p>
+<pre><code>FunctionLit   = &quot;func&quot; Signature FunctionBody .
+</code></pre>
+<p>函数面值由FunctionLit定义，同样是由func关键字开始，后面是函数签名（输入参数和返回值）和函数体。函数面值和函数声明的最大差别是没有函数名字。</p>
+<p>我们从最简单的函数面值开始：</p>
+<pre><code class="language-go">func(){}
+</code></pre>
+<p>该函数面值没有输入参数和返回值，同时函数体也没有任何语句，而且没有涉及上下文的变量引用，可以说是最简单的函数面值。因为面值也是一种表达式，因此可以用表达式的方式解析其语法树：</p>
+<pre><code class="language-go">func main() {
+	expr, _ := parser.ParseExpr(`func(){}`)
+	ast.Print(nil, expr)
+}
+</code></pre>
+<p>输出的语法树结构如下：</p>
+<pre><code> 0  *ast.FuncLit {
+ 1  .  Type: *ast.FuncType {
+ 2  .  .  Func: 1
+ 3  .  .  Params: *ast.FieldList {
+ 4  .  .  .  Opening: 5
+ 5  .  .  .  Closing: 6
+ 6  .  .  }
+ 7  .  }
+ 8  .  Body: *ast.BlockStmt {
+ 9  .  .  Lbrace: 7
+10  .  .  Rbrace: 8
+11  .  }
+12  }
+</code></pre>
+<p>函数面值的语法树由<code>*ast.FuncLit</code>结构体表示，其中再由Type成员表示类型，Body成员表示函数体语句。函数的类型和函数体分别由<code>ast.FuncType</code>和<code>ast.BlockStmt</code>结构体表示，它们和函数声明中的表示形式是一致的。</p>
+<p>我们可以对比下<code>*ast.FuncLit</code>和<code>ast.FuncDecl</code>结构体的差异：</p>
+<pre><code class="language-go">type FuncLit struct {
+	Type *FuncType  // function type
+	Body *BlockStmt // function body
+}
+type FuncDecl struct {
+	Doc  *CommentGroup // associated documentation; or nil
+	Recv *FieldList    // receiver (methods); or nil (functions)
+	Name *Ident        // function/method name
+	Type *FuncType     // function signature: parameters, results, and position of &quot;func&quot; keyword
+	Body *BlockStmt    // function body; or nil for external (non-Go) function
+}
+</code></pre>
+<p>对比可以发现表示函数类型的Type成员和表示函数体语句的Body成员类型都是一样的，但是FuncDecl函数声明比FuncLit函数面值多了函数名字和接收者参数列表等信息。因此如果理解了函数声明的完整结构，就可以用相似的方式处理函数类型和函数语句。</p>
+<p>需要注意的是函数有面值，但是接口没有面值。因为接口是在运行时表示其它满足接口的对象，我们无法直接构造接口面值。在需要通过面值构造接口变量的地方，一般可以通过结构体等其它类型构造的面值赋值给接口的方式实现。</p>
+<h2>8.3 复合类型面值语法</h2>
+<p>复合类型面值语法由类型和值组成，其语法规范如下：</p>
+<pre><code>CompositeLit  = LiteralType LiteralValue .
+LiteralType   = StructType | ArrayType | &quot;[&quot; &quot;...&quot; &quot;]&quot; ElementType |
+                SliceType | MapType | TypeName .
+LiteralValue  = &quot;{&quot; [ ElementList [ &quot;,&quot; ] ] &quot;}&quot; .
+ElementList   = KeyedElement { &quot;,&quot; KeyedElement } .
+KeyedElement  = [ Key &quot;:&quot; ] Element .
+Key           = FieldName | Expression | LiteralValue .
+FieldName     = identifier .
+Element       = Expression | LiteralValue .
+</code></pre>
+<p>复合类型主要包含结构体、数组、切片和map类型，此外还有基于这些类型命名的类型。结构体、数组、切片和map类型的面值在LiteralValue定义，对应一个大括号构成的语法结构。在LiteralValue描述的复合类型面值部分的大括号中，由一个可选的Key和对应的值组成，其中值可以是基础面值、生成值的表达式或者是LiteralValue类型。</p>
+<p>以下是结构体、数组、切片和map类型常见的面值语法：</p>
+<pre><code class="language-go">[1]int{1}
+[...]int{100:1,200:2}
+[]int{1,2,3}
+[]int{100:1,200:2}
+struct {X int}{1}
+struct {X int}{X:1}
+map[int]int{1:1, 2:2}
+</code></pre>
+<p>其中数组和切片各有两种面值语法：一种是顺序指定初始值的列表，另一种是通过下标指定某个特定位置的初始值（两种格式可以混合使用）。结构体面值可以全部省略成员的名字，也可以指定成员的名字。map的面值必须完整指定Key和对应的值。</p>
+<p>复合类型面值内元素的初始值又可能是复合面值，因此这也是一种递归语法结构。下面是一个嵌套复合类型的例子：</p>
+<pre><code class="language-go">[]image.Point{
+	image.Point{X: 1, Y: 2},
+	{X: 3, Y: 4},
+	5: {6, 7},
+}
+</code></pre>
+<p>最外层是<code>image.Point</code>类型的切片，第一个元素通过完整的面值语法<code>image.Point{X: 1, Y: 2}</code>指定初始值，第二个元素通过简化的<code>{X: 3, Y: 4}</code>语法初始化，第三四五个元素空缺为零值，最后一个元素通过下表语法结合<code>{6, 7}</code>指定。需要注意的是，虽然面值初始化有多种形式，但是在语法树中都是相似的，因此我们需要透过面值的表象理解其语法树的本质。</p>
+<p>复合型面值的语法树通过<code>ast.CompositeLit</code>表示：</p>
+<pre><code class="language-go">type CompositeLit struct {
+	Type       Expr      // literal type; or nil
+	Lbrace     token.Pos // position of &quot;{&quot;
+	Elts       []Expr    // list of composite elements; or nil
+	Rbrace     token.Pos // position of &quot;}&quot;
+	Incomplete bool      // true if (source) expressions are missing in the Elts list
+}
+</code></pre>
+<p>其中<code>ast.CompositeLit.Type</code>对应复合类型的表达式，然后<code>ast.CompositeLit.Elts</code>是复合类型初始元素列表。初始元素列表可以是普通的值，也可能是Key-Value下标和值对，而且初始值还可能是其它的复合面值。</p>
+<h2>8.4 数组和切片面值</h2>
+<p>数组或切片面值是在数组类型后面的大括弧中包含数组的元素列表：</p>
+<pre><code class="language-go">[...]int{1,2:3}
+</code></pre>
+<p>因为数组面值也是一种表达式，因此可以直接通过解析表达式的方式生成语法树：</p>
+<pre><code class="language-go">func main() {
+	expr, _ := parser.ParseExpr(`[...]int{1,2:3}`)
+	ast.Print(nil, expr)
+}
+</code></pre>
+<p>输出的语法树如下：</p>
+<pre><code> 0  *ast.CompositeLit {
+ 1  .  Type: *ast.ArrayType {
+ 2  .  .  Lbrack: 1
+ 3  .  .  Len: *ast.Ellipsis {
+ 4  .  .  .  Ellipsis: 2
+ 5  .  .  }
+ 6  .  .  Elt: *ast.Ident {
+ 7  .  .  .  NamePos: 6
+ 8  .  .  .  Name: &quot;int&quot;
+ 9  .  .  .  Obj: *ast.Object {
+10  .  .  .  .  Kind: bad
+11  .  .  .  .  Name: &quot;&quot;
+12  .  .  .  }
+13  .  .  }
+14  .  }
+15  .  Lbrace: 9
+16  .  Elts: []ast.Expr (len = 2) {
+17  .  .  0: *ast.BasicLit {
+18  .  .  .  ValuePos: 10
+19  .  .  .  Kind: INT
+20  .  .  .  Value: &quot;1&quot;
+21  .  .  }
+22  .  .  1: *ast.KeyValueExpr {
+23  .  .  .  Key: *ast.BasicLit {
+24  .  .  .  .  ValuePos: 12
+25  .  .  .  .  Kind: INT
+26  .  .  .  .  Value: &quot;2&quot;
+27  .  .  .  }
+28  .  .  .  Colon: 13
+29  .  .  .  Value: *ast.BasicLit {
+30  .  .  .  .  ValuePos: 14
+31  .  .  .  .  Kind: INT
+32  .  .  .  .  Value: &quot;3&quot;
+33  .  .  .  }
+34  .  .  }
+35  .  }
+36  .  Rbrace: 15
+37  .  Incomplete: false
+38  }
+</code></pre>
+<p>复合面值语法树由<code>ast.CompositeLit</code>结构体表示，其中<code>ast.CompositeLit.Type</code>成员为<code>ast.ArrayType</code>表示这是数组或切片类型（如果没有长度信息则为切片类型，否则就是数组），而<code>ast.CompositeLit</code>Elts成员则是元素的值。初始元素是一个<code>[]ast.Expr</code>类型的切片，每个元素依然是一个表达式。数组的第一个元素是<code>ast.BasicLit</code>类型，表示这是一个基础面值类型。数组的第二个元素是<code>ast.KeyValueExpr</code>方式指定的，其中Key对应的数组下标是2，Value对应的值为3。</p>
+<p>数组和切片语法的最大差别是数组有长度信息。在这个例子中数组是通过<code>...</code>省略号表达式自动计算数组的长度，在语法树中对应的是<code>ast.Ellipsis</code>表达式类型。如果<code>ast.ArrayType</code>结构体中的Len成员是空指针，则表示这是一个切片类型，否则对应可以生成数组长度的表达式。</p>
+<h2>8.5 结构体面值</h2>
+<p>结构体面值和数组面值类似，是在结构体类型后面的大括弧中包含结构体成员的初始值。下面是结构体例子：</p>
+<pre><code class="language-go">struct{X int}{X:1}
+</code></pre>
+<p>可以通过以下代码解析其语法树：</p>
+<pre><code class="language-go">func main() {
+	expr, _ := parser.ParseExpr(`struct{X int}{X:1}`)
+	ast.Print(nil, expr)
+}
+</code></pre>
+<p>输出的语法树结果如下：</p>
+<pre><code> 0 *ast.CompositeLit {
+ 1  .  Type: *ast.StructType {...}
+32  .  Lbrace: 14
+33  .  Elts: []ast.Expr (len = 1) {
+34  .  .  0: *ast.KeyValueExpr {
+35  .  .  .  Key: *ast.Ident {
+36  .  .  .  .  NamePos: 15
+37  .  .  .  .  Name: &quot;X&quot;
+38  .  .  .  }
+39  .  .  .  Colon: 16
+40  .  .  .  Value: *ast.BasicLit {
+41  .  .  .  .  ValuePos: 17
+42  .  .  .  .  Kind: INT
+43  .  .  .  .  Value: &quot;1&quot;
+44  .  .  .  }
+45  .  .  }
+46  .  }
+47  .  Rbrace: 18
+48  .  Incomplete: false
+49  }
+</code></pre>
+<p>结构体面值依然是通过<code>ast.CompositeLit</code>结构体描述。结构体中成员的初始化通过<code>ast.KeyValueExpr</code>结构体初始化，Key部分为X表示成员名字，Value部分为X成员的初始值。</p>
+<p>当然，结构体的初始化也可以不声明成员的名字：</p>
+<pre><code class="language-go">func main() {
+	expr, _ := parser.ParseExpr(`struct{X int}{1}`)
+	ast.Print(nil, expr)
+}
+</code></pre>
+<p>现在的初始化方式生成的语法树变得更简单：</p>
+<pre><code>33  .  Elts: []ast.Expr (len = 1) {
+34  .  .  0: *ast.BasicLit {
+35  .  .  .  ValuePos: 15
+36  .  .  .  Kind: INT
+37  .  .  .  Value: &quot;1&quot;
+38  .  .  }
+39  .  }
+</code></pre>
+<p>只有一个元素是通过<code>ast.BasicLit</code>对应的基础面值表示，对应结构体的第一个成员。</p>
+<h2>8.6 map面值</h2>
+<p>map面值的表示方式和按成员名字初始化结构体的面值语法树基本一样：</p>
+<pre><code class="language-go">func main() {
+	expr, _ := parser.ParseExpr(`map[int]int{1:2}`)
+	ast.Print(nil, expr)
+}
+</code></pre>
+<p>输出语法树中的初始化值列表部分（<code>ast.CompositeLit.Elts</code>）：</p>
+<pre><code>18  .  Elts: []ast.Expr (len = 1) {
+19  .  .  0: *ast.KeyValueExpr {
+20  .  .  .  Key: *ast.BasicLit {
+21  .  .  .  .  ValuePos: 13
+22  .  .  .  .  Kind: INT
+23  .  .  .  .  Value: &quot;1&quot;
+24  .  .  .  }
+25  .  .  .  Colon: 14
+26  .  .  .  Value: *ast.BasicLit {
+27  .  .  .  .  ValuePos: 15
+28  .  .  .  .  Kind: INT
+29  .  .  .  .  Value: &quot;2&quot;
+30  .  .  .  }
+31  .  .  }
+32  .  }
+</code></pre>
+<p>map的初始值只能通过<code>ast.KeyValueExpr</code>对应的键值对表示，因为缺少了key无法定位值对应的下标位置。</p>
+<h2>8.7 小结</h2>
+<p>非基础面值包含函数面值和复合类型面值。函数面值和顶级函数声明有着相似的语法，只是没有函数名部分，表示语法树的结构体都是一致的。而数组、切片、结构体和map等复合类型的初始化语法也是高度一致的，其中只有map必须通过键值对初始化，其它的复合类型同时支持键值对和顺序值列表初始化，因此初始化值对应的语法树有<code>ast.KeyValueExpr</code>和普通的<code>ast.Expr</code>类型。至此，和数据相关的类型和值已经全部讨论，在此基础之上构建数据的反射实现，也可以基于数据结构构建算法。类型和值是最基础的部分，因为它们是构成变量的基础。</p>
+
+
+                        
+
+                        
+                            <div id="giscus-container"></div>
+                        
+
+                        
+                            <footer class="page-footer">
+                                <span>© 2019-2022 | <a href="https://github.com/chai2010/go-ast-book">柴树杉、史斌、丁尔男</a> 保留所有权利</span>
+                            </footer>
+                        
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../ch7/readme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                            <!-- ../ch9/readme.html -->
+                            <a rel="next" href="../ch9/readme.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../ch7/readme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                
+                    <a rel="next" href="../ch9/readme.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../static/wabook/mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+            var pagePath = "ch8/readme.md"
+        </script>
+
+        <!-- Custom JS scripts -->
+        
+            <script src="../static/wabook/giscus.js" type="text/javascript" charset="utf-8"></script>
+        
+
+    </body>
+</html>

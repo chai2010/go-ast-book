@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using https://github.com/wa-lang/wabook -->
+        <meta charset="UTF-8">
+        <title>前言 - Go语言定制指南</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="./favicon.svg">
+        <link rel="shortcut icon" href="./favicon.png">
+        <link rel="stylesheet" href="./static/wabook/css/variables.css">
+        <link rel="stylesheet" href="./static/wabook/css/general.css">
+        <link rel="stylesheet" href="./static/wabook/css/chrome.css">
+        <link rel="stylesheet" href="./static/wabook/css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./static/wabook/FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="./static/wabook/fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./static/wabook/highlight.css">
+        <link rel="stylesheet" href="./static/wabook/tomorrow-night.css">
+        <link rel="stylesheet" href="./static/wabook/ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "./";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('wabook-theme');
+                var sidebar = localStorage.getItem('wabook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('wabook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('wabook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('wabook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('wabook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter">
+  <li class="chapter-item expanded ">
+    <a href="./index.html" >Go语言定制指南</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./preface.html" class="active">前言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch1/readme.html" ><strong aria-hidden="true">1.</strong> 第1章 记号</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch2/readme.html" ><strong aria-hidden="true">2.</strong> 第2章 基础面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch3/readme.html" ><strong aria-hidden="true">3.</strong> 第3章 基础表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch4/readme.html" ><strong aria-hidden="true">4.</strong> 第4章 代码结构</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch5/readme.html" ><strong aria-hidden="true">5.</strong> 第5章 通用声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch6/readme.html" ><strong aria-hidden="true">6.</strong> 第6章 函数声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch7/readme.html" ><strong aria-hidden="true">7.</strong> 第7章 复合类型</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch8/readme.html" ><strong aria-hidden="true">8.</strong> 第8章 复合面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch9/readme.html" ><strong aria-hidden="true">9.</strong> 第9章 复合表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch10/readme.html" ><strong aria-hidden="true">10.</strong> 第10章 语句块和语句</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch11/readme.html" ><strong aria-hidden="true">11.</strong> 第11章 类型检查</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch12/readme.html" ><strong aria-hidden="true">12.</strong> 第12章 语义信息</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch13/readme.html" ><strong aria-hidden="true">13.</strong> 第13章 SSA形式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch14/readme.html" ><strong aria-hidden="true">14.</strong> 第14章 凹语言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch15/readme.html" ><strong aria-hidden="true">15.</strong> 第15章 LLVM简介</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./ch16/readme.html" ><strong aria-hidden="true">16.</strong> 第16章 LLVM实例</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./appendix/a-goyacc/readme.html" >附录A goyacc</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="./appendix/b-antlr4/readme.html" >附录B ANTLR4</a>
+  </li>
+</ol>
+
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title"><a href="./index.html">Go语言定制指南</a></h1>
+
+                    <div class="right-buttons">
+                        <a href="https://github.com/chai2010/go-ast-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/chai2010/go-ast-book/edit/master/preface.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                    <main>
+                        <ul dir="auto"><li><em>凹语言(Go实现, 面向WASM设计): <a href="https://github.com/wa-lang/wa">https://github.com/wa-lang/wa</a></em></li><li><em>WaBook(Go语言实现的MD电子书构建工具): <a href="https://github.com/wa-lang/wabook">https://github.com/wa-lang/wabook</a></em></li></ul><hr>
+
+                        <h1>序言1 - Ian Lance Taylor</h1>
+<p>因为出版社版权限制不方便全部公开新增内容，完整内容请参考 <a href="https://www.epubit.com/bookDetails?id=UBc86f749c1eb7">实体书</a>。</p>
+<hr>
+<h1>序言2 - 许式伟</h1>
+<p>因为出版社版权限制不方便全部公开新增内容，完整内容请参考 <a href="https://www.epubit.com/bookDetails?id=UBc86f749c1eb7">实体书</a>。</p>
+<hr>
+<h1>序言3 - 作者</h1>
+<p>在武侠小说中，天下武功出少林，少林寺的七十二绝技名扬天下。但是真正能学会并能够掌握七十二绝技的屈指可数，主要原因是学习周期太长。以七十二绝技中的一指禅为例，据说五代时期的法慧禅师以三十六年时间掌握的学习速度排名第一，其次是南宋的灵兴禅师花了三十九年时光排名第二，而韦爵爷的澄观师侄以四十二年而练成一指禅名列第三。如果一个绝技真的需要几十或上百年的时间才能掌握，那只能说明这个绝技没有实用价值，或者是学习的人没有掌握科学的学习方法。</p>
+<p>其实少林寺的七十二绝技是有科学高效的学习方法的，这个方法由《天龙八部》中的鸠摩智发明并实践。鸠摩智国师经过科学研究发现少林寺的七十二绝技招式虽然厉害，但是其内部的驱动引擎性能极其底下（预热就需要几十年时间），而稍微强一点的易筋经引擎又涉及知识产权问题不对外开放授权，因此如何为七十二绝技定制一个合适的内功驱动引擎就成了一个关键问题。经过不懈努力，鸠摩智大师终于发现可以将逍遥派的小无相功作为驱动七十二绝技的内功引擎，从而开辟了一条武学弯道超车的新捷径。</p>
+<p>在软件开发领域同样存在几个圣地：数据库、操作系统和编译器。其中编译器的开发技术更是被称为屠龙之技，号称龙书的《编译原理》的封面就是一个骑士在和巨龙搏斗的画面。编译器开发的相关理论就类似于少林寺内功心法，虽然理论强大但是学习的效率极其低下。而作为编译器界面的编程语言就类似于少林寺的七十二绝技的招式，普通码农如果想以常规传统的方式从头发明或实现一整套实用的编程语言难于登天。自己从头实现编程语言不仅仅要涉及诸多编译方面的理论，还需要通过大量的编码工作解决各种细节问题。作为自制编程语言爱好者而言，我们的目的不是为了单纯掌握龙书的理论，而是希望有一个自己可控的编程语言，因此我们同样需要寻找一个自制编程语言的捷径。</p>
+<p>Go语言作为一个将自身的编译器内置到标准库的主流通用编译型编程语言，其语法树相关包的设计与实现堪称是编程艺术和编译理论相结合的典范，是Unix之父等老一辈软件工程师毕生的艺术结晶。同时Go语言的语法比较简单（只有25个关键字），非常适合作为自制编程语言的基础参考语言。开源社区已经从Go语言语法树诞生了诸多扩展语言：比如GopherJS项目将Go语言带入了前端开发领域；TinyGo则是将Go语言带入了单片机等微系统的开发领域；国内的七牛公司更是针对数据科学领域定制了Go+语言。这些基于Go定制语言的一个共通之处都是基于Go语法树进行再加工处理。因此如果能熟练掌握Go语法树的使用，就能跨过繁杂的词法分析、语法分析程序，直接使用龙书中的高深理论，进入语言特性定制领域。这将极大的降低自定义语言的门槛。</p>
+<p>为了真正开启自制编程语言的历程，同时让Go语法树能够真正落地产生生产力，本书的最后一章引入了我们定制的凹语言（凹读音“Wa”）。凹语言的定制过程类似自己组装一台电脑，在语言能够独立工作前并不自己创造新的核心模块，而是基于已有的软件模块进行改造和拼装，但是最终得到的依然是自主可控的语言。在语言可以初步工作之后，可以再进一步根据需求优化局部细节或者对语言的语法做局部性的重新设计，这样实现语言的每个阶段的难度都不会很大。我们的目标不是为了仅仅制造一个玩具语言，凹语言的语法树解析和语义分析都是工业级的，如果后端再接入LLVM就很容易将其改造为实用性的语言。</p>
+<p>随着千禧年之后计算机在中国普及，我们国家的程序员已经在追赶并紧跟着世界前沿技术的发展。但是作为最古老的编程语言和编译相关技术，国内相关的图书资料还停留在讲述几十年前的理论或者是讲述如何构建一些缺乏实用价值的玩具语言阶段，理论和实践严重脱节。与经典著作编译龙书相比，龙书深刻地讲解了编译技术用到的理论知识；而本书立足于实战与理论的结合，教授读者利用现成的工具，快速搭建一个可以实用的编程语言。我们希望本书可以为我国编译器和编程语言的自主化提供力所能及的帮助。</p>
+<p>最后，我们希望各位读者能够定制出自己的编程语言，并使用定制的语言快乐地编程。</p>
+<hr>
+<h1>致谢</h1>
+<p>感谢 <a href="https://www.airs.com/ian/">Ian Lance Taylor</a> 本书写推荐序，他是Go语言第4位参与者，为社区做出了巨大贡献，靠一己之力完成了gccgo。感谢许式伟为本书写推荐序，许大是七牛公司的创始人和CEO，也是大中华区首席Go语言布道者。感谢Go语言之父和每一个为Go语言提交过补丁的朋友。感谢fango的第一本以Go语言为主题的网络小说《胡文Go.ogle》和第一本中文Go语言图书《Go语言·云动力》，是你的分享让带起了大家学习Go语言的热情。感谢GopherChina创始人谢孟军多年来的支持，感谢国内对社区作出贡献的每一个Go语言小伙伴，你们的奉献让社区更加壮大。最后感谢本书的编辑杨海铃老师，没有您本书就不可能出版。谢谢大家！</p>
+
+
+                        
+
+                        
+                            <div id="giscus-container"></div>
+                        
+
+                        
+                            <footer class="page-footer">
+                                <span>© 2019-2022 | <a href="https://github.com/chai2010/go-ast-book">柴树杉、史斌、丁尔男</a> 保留所有权利</span>
+                            </footer>
+                        
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="./index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                            <!-- ./ch1/readme.html -->
+                            <a rel="next" href="./ch1/readme.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="./index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                
+                    <a rel="next" href="./ch1/readme.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="./static/wabook/mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="./static/wabook/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="./static/wabook/highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="./static/wabook/book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+            var pagePath = "preface.md"
+        </script>
+
+        <!-- Custom JS scripts -->
+        
+            <script src="./static/wabook/giscus.js" type="text/javascript" charset="utf-8"></script>
+        
+
+    </body>
+</html>

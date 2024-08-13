@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using https://github.com/wa-lang/wabook -->
+        <meta charset="UTF-8">
+        <title>第6章 函数声明 - Go语言定制指南</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../static/wabook/css/variables.css">
+        <link rel="stylesheet" href="../static/wabook/css/general.css">
+        <link rel="stylesheet" href="../static/wabook/css/chrome.css">
+        <link rel="stylesheet" href="../static/wabook/css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../static/wabook/FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../static/wabook/fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../static/wabook/highlight.css">
+        <link rel="stylesheet" href="../static/wabook/tomorrow-night.css">
+        <link rel="stylesheet" href="../static/wabook/ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('wabook-theme');
+                var sidebar = localStorage.getItem('wabook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('wabook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('wabook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('wabook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('wabook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter">
+  <li class="chapter-item expanded ">
+    <a href="../index.html" >Go语言定制指南</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../preface.html" >前言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch1/readme.html" ><strong aria-hidden="true">1.</strong> 第1章 记号</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch2/readme.html" ><strong aria-hidden="true">2.</strong> 第2章 基础面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch3/readme.html" ><strong aria-hidden="true">3.</strong> 第3章 基础表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch4/readme.html" ><strong aria-hidden="true">4.</strong> 第4章 代码结构</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch5/readme.html" ><strong aria-hidden="true">5.</strong> 第5章 通用声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch6/readme.html" class="active"><strong aria-hidden="true">6.</strong> 第6章 函数声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch7/readme.html" ><strong aria-hidden="true">7.</strong> 第7章 复合类型</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch8/readme.html" ><strong aria-hidden="true">8.</strong> 第8章 复合面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch9/readme.html" ><strong aria-hidden="true">9.</strong> 第9章 复合表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch10/readme.html" ><strong aria-hidden="true">10.</strong> 第10章 语句块和语句</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch11/readme.html" ><strong aria-hidden="true">11.</strong> 第11章 类型检查</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch12/readme.html" ><strong aria-hidden="true">12.</strong> 第12章 语义信息</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch13/readme.html" ><strong aria-hidden="true">13.</strong> 第13章 SSA形式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch14/readme.html" ><strong aria-hidden="true">14.</strong> 第14章 凹语言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch15/readme.html" ><strong aria-hidden="true">15.</strong> 第15章 LLVM简介</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch16/readme.html" ><strong aria-hidden="true">16.</strong> 第16章 LLVM实例</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/a-goyacc/readme.html" >附录A goyacc</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/b-antlr4/readme.html" >附录B ANTLR4</a>
+  </li>
+</ol>
+
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title"><a href="../index.html">Go语言定制指南</a></h1>
+
+                    <div class="right-buttons">
+                        <a href="https://github.com/chai2010/go-ast-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/chai2010/go-ast-book/edit/master/ch6/readme.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                    <main>
+                        <ul dir="auto"><li><em>凹语言(Go实现, 面向WASM设计): <a href="https://github.com/wa-lang/wa">https://github.com/wa-lang/wa</a></em></li><li><em>WaBook(Go语言实现的MD电子书构建工具): <a href="https://github.com/wa-lang/wabook">https://github.com/wa-lang/wabook</a></em></li></ul><hr>
+
+                        <h1>第6章 函数声明</h1>
+<p>函数是所有编程语言中的核心，因为只有函数的语句才有了计算的功能。Go语言的函数也是一种值数据，可以定义包级别的函数，也可以为自定义的类型定义方法，同时还可以在局部作用域内定义闭包函数。本节将讨论函数的数据类型。</p>
+<h2>6.1 函数的语法</h2>
+<p>在顶级声明中包含函数和方法的声明，从语法角度看函数是没有接收者参数的方法特例。函数的语法规则如下：</p>
+<pre><code>FunctionDecl = &quot;func&quot; MethodName Signature [ FunctionBody ] .
+MethodDecl   = &quot;func&quot; Receiver MethodName Signature [ FunctionBody ] .
+
+MethodName     = identifier .
+Receiver       = Parameters .
+Signature      = Parameters [ Result ] .
+Result         = Parameters | Type .
+Parameters     = &quot;(&quot; [ ParameterList [ &quot;,&quot; ] ] &quot;)&quot; .
+ParameterList  = ParameterDecl { &quot;,&quot; ParameterDecl } .
+ParameterDecl  = [ IdentifierList ] [ &quot;...&quot; ] Type .
+</code></pre>
+<p>其中FunctionDecl表示函数，而MethodDecl表示方法。MethodDecl表示的方法规范比函数多了Receiver语法结构，Receiver表示方法的接收者参数。然后是MethodName表示的函数或方法名，Signature表示函数的签名（或者叫类型），最后是函数的主体。需要注意的是函数的签名只有输入参数和返回值部分，因此函数或方法的名字、以及方法的接收者类型都不是函数签名的组成部分。从以上定义还可以发现，Receiver、Parameters和Result都是ParameterList定义，因此有着相同的语法结构（在语法树中也是有着相同的结构）。</p>
+<h2>6.2 定义函数</h2>
+<p>包一级的函数只有包函数和方法两种类型（闭包函数只能在函数体内部创建），而包函数可以看作是没有接收者的方法函数。因此只有搞明白方法函数的类型，全局的包函数自然就清楚了。</p>
+<p>下面是一个方法函数：</p>
+<pre><code class="language-go">func (p *xType) Hello(arg1, arg2 int) (bool, error) { ... }
+</code></pre>
+<p>通过<code>parser.ParseFile</code>解析得到<code>*ast.File</code>类型的f返回值之后，可以通过以下的代码打印方法的声明：</p>
+<pre><code class="language-go">	for _, decl := range f.Decls {
+		if fn, ok := decl.(*ast.FuncDecl); ok {
+			ast.Print(nil, fn)
+		}
+	}
+</code></pre>
+<p>函数的声明对应<code>*ast.FuncDecl</code>类型，它的定义如下：</p>
+<pre><code class="language-go">type FuncDecl struct {
+	Doc  *CommentGroup // associated documentation; or nil
+	Recv *FieldList    // receiver (methods); or nil (functions)
+	Name *Ident        // function/method name
+	Type *FuncType     // function signature: parameters, results, and position of &quot;func&quot; keyword
+	Body *BlockStmt    // function body; or nil for external (non-Go) function
+}
+</code></pre>
+<p>其中Recv对应接收者列表，在这里是指<code>(p *xType)</code>部分。Name是函数的名字，这里的名字是Hello。而Type表示方法或函数的类型（函数的类型和接口的定义一致，因为接口并不包含接收者信息），其中包含输入参数和返回值信息。最后的Body表示函数体中的语句部分，我们暂时忽略函数体部分。</p>
+<p>函数声明最重要的是名字、接收者、输入参数和返回值，其中除名字之外的三者都是<code>ast.FieldList</code>类型，而输入参数和返回值又被封装为<code>ast.FuncType</code>类型。表示函数类型的<code>ast.FuncType</code>结构体定义如下：</p>
+<pre><code class="language-go">type FuncType struct {
+	Func    token.Pos  // position of &quot;func&quot; keyword (token.NoPos if there is no &quot;func&quot;)
+	Params  *FieldList // (incoming) parameters; non-nil
+	Results *FieldList // (outgoing) results; or nil
+}
+</code></pre>
+<p>其中Params和Results分别表示输入参数和返回值列表，它们和函数的接收者参数列表是相同的类型。因此该方法的定义可以用下图表示：</p>
+<p><img src="../images/ch6-func-decl-01.png" alt=""></p>
+<p>对于没有接收者的包函数，<code>ast.FuncDecl.Recv</code>部分为nil。而对于方法函数，即使定义多个接收者参数依然是可以正确解析的。因此合法的语法树不一定完全满足Go语言的规范，一般在语法树构建完成之后还需要专门进行语义分析。</p>
+<h2>6.3 参数分组</h2>
+<p>接收者、输入和返回值参数均由<code>ast.FieldList</code>定义，该结构体定义如下：</p>
+<pre><code class="language-go">type FieldList struct {
+	Opening token.Pos // position of opening parenthesis/brace, if any
+	List    []*Field  // field list; or nil
+	Closing token.Pos // position of closing parenthesis/brace, if any
+}
+type Field struct {
+	Doc     *CommentGroup // associated documentation; or nil
+	Names   []*Ident      // field/method/parameter names; or nil
+	Type    Expr          // field/method/parameter type
+	Tag     *BasicLit     // field tag; or nil
+	Comment *CommentGroup // line comments; or nil
+}
+</code></pre>
+<p><code>ast.FieldList</code>其实是<code>[]*ast.Field</code>切片类型的再次包装，注意是增加了开始和结束的位置信息。每一个<code>ast.Field</code>表示一组参数，所有参数的名字由<code>[]*ast.Ident</code>切片表示，而通一组参数有着相同的类型。Type表示一组参数的类型，是一个类型表达式。</p>
+<p>查看下面的例子：</p>
+<pre><code class="language-go">func Hello1(s0, s1 string, s2 string)
+</code></pre>
+<p>其中s0省略了类型，和s1共享string类型，因此s0和s1是一组参数，对应一个<code>ast.Field</code>。而s2是另一个独立的<code>ast.Field</code>。</p>
+<p>函数的接收者、输入和返回值参数均可以省略名字，如果省略了名字则使用后面第一次出现的类型。如果全部参数都省略了名字，那么每个参数就只有类型信息，函数体内部无法再通过参数名字访问参数。</p>
+
+
+                        
+
+                        
+                            <div id="giscus-container"></div>
+                        
+
+                        
+                            <footer class="page-footer">
+                                <span>© 2019-2022 | <a href="https://github.com/chai2010/go-ast-book">柴树杉、史斌、丁尔男</a> 保留所有权利</span>
+                            </footer>
+                        
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../ch5/readme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                            <!-- ../ch7/readme.html -->
+                            <a rel="next" href="../ch7/readme.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../ch5/readme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                
+                    <a rel="next" href="../ch7/readme.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../static/wabook/mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+            var pagePath = "ch6/readme.md"
+        </script>
+
+        <!-- Custom JS scripts -->
+        
+            <script src="../static/wabook/giscus.js" type="text/javascript" charset="utf-8"></script>
+        
+
+    </body>
+</html>

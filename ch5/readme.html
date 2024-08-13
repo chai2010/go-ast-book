@@ -1,0 +1,515 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using https://github.com/wa-lang/wabook -->
+        <meta charset="UTF-8">
+        <title>第5章 通用声明 - Go语言定制指南</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../static/wabook/css/variables.css">
+        <link rel="stylesheet" href="../static/wabook/css/general.css">
+        <link rel="stylesheet" href="../static/wabook/css/chrome.css">
+        <link rel="stylesheet" href="../static/wabook/css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../static/wabook/FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../static/wabook/fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../static/wabook/highlight.css">
+        <link rel="stylesheet" href="../static/wabook/tomorrow-night.css">
+        <link rel="stylesheet" href="../static/wabook/ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('wabook-theme');
+                var sidebar = localStorage.getItem('wabook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('wabook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('wabook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('wabook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('wabook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter">
+  <li class="chapter-item expanded ">
+    <a href="../index.html" >Go语言定制指南</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../preface.html" >前言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch1/readme.html" ><strong aria-hidden="true">1.</strong> 第1章 记号</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch2/readme.html" ><strong aria-hidden="true">2.</strong> 第2章 基础面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch3/readme.html" ><strong aria-hidden="true">3.</strong> 第3章 基础表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch4/readme.html" ><strong aria-hidden="true">4.</strong> 第4章 代码结构</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch5/readme.html" class="active"><strong aria-hidden="true">5.</strong> 第5章 通用声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch6/readme.html" ><strong aria-hidden="true">6.</strong> 第6章 函数声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch7/readme.html" ><strong aria-hidden="true">7.</strong> 第7章 复合类型</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch8/readme.html" ><strong aria-hidden="true">8.</strong> 第8章 复合面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch9/readme.html" ><strong aria-hidden="true">9.</strong> 第9章 复合表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch10/readme.html" ><strong aria-hidden="true">10.</strong> 第10章 语句块和语句</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch11/readme.html" ><strong aria-hidden="true">11.</strong> 第11章 类型检查</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch12/readme.html" ><strong aria-hidden="true">12.</strong> 第12章 语义信息</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch13/readme.html" ><strong aria-hidden="true">13.</strong> 第13章 SSA形式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch14/readme.html" ><strong aria-hidden="true">14.</strong> 第14章 凹语言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch15/readme.html" ><strong aria-hidden="true">15.</strong> 第15章 LLVM简介</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch16/readme.html" ><strong aria-hidden="true">16.</strong> 第16章 LLVM实例</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/a-goyacc/readme.html" >附录A goyacc</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/b-antlr4/readme.html" >附录B ANTLR4</a>
+  </li>
+</ol>
+
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title"><a href="../index.html">Go语言定制指南</a></h1>
+
+                    <div class="right-buttons">
+                        <a href="https://github.com/chai2010/go-ast-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/chai2010/go-ast-book/edit/master/ch5/readme.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                    <main>
+                        <ul dir="auto"><li><em>凹语言(Go实现, 面向WASM设计): <a href="https://github.com/wa-lang/wa">https://github.com/wa-lang/wa</a></em></li><li><em>WaBook(Go语言实现的MD电子书构建工具): <a href="https://github.com/wa-lang/wabook">https://github.com/wa-lang/wabook</a></em></li></ul><hr>
+
+                        <h1>第5章 通用声明</h1>
+<p>通用声明是不含函数声明的包级别声明：包含导入包、类型、常量和变量四种声明。本章我们将讨论通用声明在语法树中的表示形式。</p>
+<h2>5.1 导入声明</h2>
+<p>Go语言中，当package关键字成功定义一个包之后，导入语句必须在第一时间出现，然后才能是类型、常量、变量和函数等其它声明。导入包的语法如下：</p>
+<pre><code>ImportDecl  = &quot;import&quot; ( ImportSpec | &quot;(&quot; { ImportSpec &quot;;&quot; } &quot;)&quot; ) .
+ImportSpec  = [ &quot;.&quot; | PackageName ] ImportPath .
+ImportPath  = string_lit .
+
+PackageName = identifier .
+</code></pre>
+<p>ImportDecl定义了导入声明的完整语法，第一个出现的必须是import关键字。然后小括弧中是import语句之后的部分，小括弧中的竖线分隔符表示只选择其中一个（和正则表达式的语法类似），这里是<code>ImportSpec</code>（单独导入一个包）或者是<code>&quot;(&quot; { ImportSpec &quot;;&quot; } &quot;)&quot;</code>（按组导入包）两种形式之一。ImportSpec定义了一个包的导入方式，中括弧中的导入名字是可选择的部分，ImportPath是由字符串面值组成的导入包路径。</p>
+<p>根据导入语法定义，创建的导入声明有以下几种形式：</p>
+<pre><code class="language-go">import &quot;pkg-a&quot;
+import pkg_b_v2 &quot;pkg-b&quot;
+import . &quot;pkg-c&quot;
+import _ &quot;pkg-d&quot;
+</code></pre>
+<p>其中第一种是默认的导入方式，导入后的名字采用的是&quot;pkg-a&quot;包定义的名字（具体的名字由依赖包决定）。第二种是将导入的&quot;pkg-b&quot;重新命名为pkg_b_v2。第三种是将依赖包的公开符号直接导入到当前文件的名字空间。第四种只是导入依赖包触发其包的初始化动作，但是不导入任何符号到当前文件名字空间。导入包的名字只在当前文件空间有效，因此pkg_b_v2这个名字不会扩散到当前包的其它源文件。</p>
+<p>以下代码是对导入声明的解析：</p>
+<pre><code class="language-go">func main() {
+	fset := token.NewFileSet()
+	f, err := parser.ParseFile(fset, &quot;hello.go&quot;, src, parser.ImportsOnly)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, s := range f.Imports {
+		fmt.Printf(&quot;import: name = %v, path = %#v\n&quot;, s.Name, s.Path)
+	}
+}
+
+const src = `package foo
+import &quot;pkg-a&quot;
+import pkg_b_v2 &quot;pkg-b&quot;
+import . &quot;pkg-c&quot;
+import _ &quot;pkg-d&quot;
+`
+</code></pre>
+<p>在使用<code>parser.ParseFile</code>分析文件时，采用的是<code>parser.ImportsOnly</code>模式，这样语法分析只会解析包声明和导入包的部分，其后的类型、常量、变量和函数的声明则不会解析。然后通过<code>ast.File</code>的Imports成员获取详细的导入信息（Imports成员是根据Decls声明列表中的信息生成）。</p>
+<p>以上程序的输出结果如下：</p>
+<pre><code>import: name = &lt;nil&gt;, path = &amp;ast.BasicLit{ValuePos:20, Kind:9, Value:&quot;\&quot;pkg-a\&quot;&quot;}
+import: name = pkg_b_v2, path = &amp;ast.BasicLit{ValuePos:44, Kind:9, Value:&quot;\&quot;pkg-b\&quot;&quot;}
+import: name = ., path = &amp;ast.BasicLit{ValuePos:61, Kind:9, Value:&quot;\&quot;pkg-c\&quot;&quot;}
+import: name = _, path = &amp;ast.BasicLit{ValuePos:78, Kind:9, Value:&quot;\&quot;pkg-d\&quot;&quot;}
+</code></pre>
+<p>其中第一个导入语句的Name是<code>&lt;nil&gt;</code>，表示采用的是依赖包的名字。其后的三个导入语句的Name都和我们导入声明指定的名字一致。关于导入包内部各种对象详细的定义则需要通过加载依赖的包才能获取，而内置的一些函数则需要通过手工方式和编译工具配合。</p>
+<p>导入语句解析之后的语法树结构如图所示：</p>
+<p><img src="../images/ch5-import-01.png" alt=""></p>
+<p>在编译完整的程序时，我们就可以根据导入包的路径加载其信息，通过导入后的Name访问依赖包中导出的符号。</p>
+<h2>5.2 基础类型声明</h2>
+<p>Go语言中通过type关键字声明类型：一种是声明新的类型，另一种是为已有的类型创建一个别名。以下是类型声明的语法规范：</p>
+<pre><code>TypeDecl = &quot;type&quot; ( TypeSpec | &quot;(&quot; { TypeSpec &quot;;&quot; } &quot;)&quot; ) .
+TypeSpec = AliasDecl | TypeDef .
+
+AliasDecl = identifier &quot;=&quot; Type .
+TypeDef   = identifier Type .
+Type      = identifier | &quot;(&quot; Type &quot;)&quot; .
+</code></pre>
+<p>其中TypeDecl定义了类型声明的语法规范，可以是每个类型独立定义或通过小括弧包含按组定义。其中AliasDecl是定义类型的别名（名字和类型中间有个赋值符号），而TypeDef则是定义一个新的类型。而基础的Type就是由标识符或者是小括弧包含的其它类型表示。</p>
+<p>以下代码定义了一个新的MyInt1类型，同时为int创建一个MyInt2的别名：</p>
+<pre><code class="language-go">type MyInt1 int
+type MyInt2 = int
+</code></pre>
+<p>然后通过以下代码解析以上两个类型声明语句：</p>
+<pre><code class="language-go">func main() {
+	fset := token.NewFileSet()
+	f, err := parser.ParseFile(fset, &quot;hello.go&quot;, src, parser.AllErrors)
+	if err != nil {
+		log.Fatal(err)
+	}
+	...
+}
+
+const src = `package foo
+type MyInt1 int
+type MyInt2 = int
+`
+</code></pre>
+<p>返回的所有声明都在<code>f.Decls</code>列表中，而基础声明对应的是<code>*ast.GenDecl</code>类型。然后我们就可以通过以下代码，查看针对类型声明的<code>*ast.GenDecl.Specs</code>列表中每个元素的类型：</p>
+<pre><code class="language-go">	for _, decl := range f.Decls {
+		if v, ok := decl.(*ast.GenDecl); ok {
+			for _, spec := range v.Specs {
+				fmt.Printf(&quot;%T\n&quot;, spec)
+			}
+		}
+	}
+	// Output:
+	// *ast.TypeSpec
+	// *ast.TypeSpec
+</code></pre>
+<p>经过运行测试，输出的是<code>*ast.TypeSpec</code>，对于类型声明在语法树的结点类型。<code>*ast.TypeSpec</code>的结构体定义如下：</p>
+<pre><code class="language-go">type TypeSpec struct {
+	Doc     *CommentGroup // associated documentation; or nil
+	Name    *Ident        // type name
+	Assign  token.Pos     // position of '=', if any
+	Type    Expr          // *Ident, *ParenExpr, *SelectorExpr, *StarExpr, or any of the *XxxTypes
+	Comment *CommentGroup // line comments; or nil
+}
+</code></pre>
+<p>其中最重要的是<code>TypeSpec.Name</code>成员，表示新声明类型的名字或者是已有类型的别名。而<code>TypeSpec.Assign</code>成员对应<code>=</code>符号的位置，如果该成员表示的位置有效，则表示这是为已有类型定义一个别名（而不是定义新的类型）。最后<code>TypeSpec.Type</code>表示具体的类型的表达式，标识符表达式、小括号表达式、点号选择表达式、指针表达式和类似<code>*ast.XxxTypes</code>类型，目前我们展示的是最简单的标识符表示的类型。</p>
+<h2>5.3 常量声明</h2>
+<p>Go语言中常量属于编译时常量，只有布尔型、数值型和字符串三种常量类型，同时常量有分为弱类型和强类型常量。常量声明的语法规范如下：</p>
+<pre><code>ConstDecl      = &quot;const&quot; ( ConstSpec | &quot;(&quot; { ConstSpec &quot;;&quot; } &quot;)&quot; ) .
+ConstSpec      = IdentifierList [ [ Type ] &quot;=&quot; ExpressionList ] .
+
+IdentifierList = identifier { &quot;,&quot; identifier } .
+ExpressionList = Expression { &quot;,&quot; Expression } .
+</code></pre>
+<p>ConstDecl定义了常量声明的语法，同样可以单独声明每个常量也可以小括弧包含按组声明常量。每个常量可以明确指定运行时类型，也可以由初始化表达式推导出常量的类型。</p>
+<p>以下代码展示了Pi和E两个数值型常量：</p>
+<pre><code class="language-go">const Pi = 3.14
+const E float64 = 2.71828
+</code></pre>
+<p>其中Pi被定义为弱类型的浮点数常量，可以赋值给float32或float64为基础其它变量。而E是被定义为float64的强类型常量，默认只能接受float64类型的变量赋值。</p>
+<p>常量声明和导入声明一样同属<code>*ast.GenDecl</code>类型的通用声明，它们的区别依然是在<code>ast.GenDecl.Specs</code>部分。我们可以使用同样的代码查看常量声明语句中Specs中元素的类型：</p>
+<pre><code class="language-go">	for _, decl := range f.Decls {
+		if v, ok := decl.(*ast.GenDecl); ok {
+			for _, spec := range v.Specs {
+				fmt.Printf(&quot;%T\n&quot;, spec)
+			}
+		}
+	}
+	// Output:
+	// *ast.ValueSpec
+	// *ast.ValueSpec
+</code></pre>
+<p>这次输出的是<code>*ast.ValueSpec</code>类型，该类型的结构体定义如下：</p>
+<pre><code class="language-go">type ValueSpec struct {
+	Doc     *CommentGroup // associated documentation; or nil
+	Names   []*Ident      // value names (len(Names) &gt; 0)
+	Type    Expr          // value type; or nil
+	Values  []Expr        // initial values; or nil
+	Comment *CommentGroup // line comments; or nil
+}
+</code></pre>
+<p>因为Go语言支持多赋值语法，因此其中Names和Values分别表示常量的名字和值列表。而Type部分则用于区分常量是否指定了强类型（比如例子中的E被定义为float64类型）。可以通过<code>ast.Print(nil, spec)</code>输出每个常量的语法树结构：</p>
+<pre><code> 0  *ast.ValueSpec {
+ 1  .  Names: []*ast.Ident (len = 1) {
+ 2  .  .  0: *ast.Ident {
+ 3  .  .  .  NamePos: 19
+ 4  .  .  .  Name: &quot;Pi&quot;
+ 5  .  .  .  Obj: *ast.Object {
+ 6  .  .  .  .  Kind: const
+ 7  .  .  .  .  Name: &quot;Pi&quot;
+ 8  .  .  .  .  Decl: *(obj @ 0)
+ 9  .  .  .  .  Data: 0
+10  .  .  .  }
+11  .  .  }
+12  .  }
+13  .  Values: []ast.Expr (len = 1) {
+14  .  .  0: *ast.BasicLit {
+15  .  .  .  ValuePos: 24
+16  .  .  .  Kind: FLOAT
+17  .  .  .  Value: &quot;3.14&quot;
+18  .  .  }
+19  .  }
+20  }
+ 0  *ast.ValueSpec {
+ 1  .  Names: []*ast.Ident (len = 1) {
+ 2  .  .  0: *ast.Ident {
+ 3  .  .  .  NamePos: 35
+ 4  .  .  .  Name: &quot;E&quot;
+ 5  .  .  .  Obj: *ast.Object {
+ 6  .  .  .  .  Kind: const
+ 7  .  .  .  .  Name: &quot;E&quot;
+ 8  .  .  .  .  Decl: *(obj @ 0)
+ 9  .  .  .  .  Data: 0
+10  .  .  .  }
+11  .  .  }
+12  .  }
+13  .  Type: *ast.Ident {
+14  .  .  NamePos: 37
+15  .  .  Name: &quot;float64&quot;
+16  .  }
+17  .  Values: []ast.Expr (len = 1) {
+18  .  .  0: *ast.BasicLit {
+19  .  .  .  ValuePos: 47
+20  .  .  .  Kind: FLOAT
+21  .  .  .  Value: &quot;2.71828&quot;
+22  .  .  }
+23  .  }
+24  }
+</code></pre>
+<p>可以发现<code>*ast.ValueSpec</code>中Names部分输出的就是普通的<code>*ast.Ident</code>标识符类型，其中包含常量的名字。而Values部分输出的是<code>*ast.BasicLit</code>是基础的面值常量。比较特殊的是E常量对应的<code>*ast.ValueSpec</code>中携带了Type信息，这里是通过<code>*ast.Ident</code>类型表示常量被指定为<code>float64</code>类型。</p>
+<h2>5.4 变量声明</h2>
+<p>变量声明的语法规范和常量声明几乎是一样的，只是开始的var关键字不同而已。变量声明的语法规范如下：</p>
+<pre><code>VarDecl = &quot;var&quot; ( VarSpec | &quot;(&quot; { VarSpec &quot;;&quot; } &quot;)&quot; ) .
+VarSpec = IdentifierList [ [ Type ] &quot;=&quot; ExpressionList ] .
+
+IdentifierList = identifier { &quot;,&quot; identifier } .
+ExpressionList = Expression { &quot;,&quot; Expression } .
+</code></pre>
+<p>变量的声明和常量的声明有着相同的结构，在语法树中可以根据<code>*ast.GenDecl</code>结构中的Tok区别它们。其实根据<code>*ast.GenDecl</code>结构中的Tok可以区分所有的基本声明，包含导入声明、类型声明、常量和变量声明。</p>
+<p>下面是构建变量声明语法树的例子：</p>
+<pre><code class="language-go">func main() {
+	fset := token.NewFileSet()
+	f, err := parser.ParseFile(fset, &quot;hello.go&quot;, src, parser.AllErrors)
+	if err != nil {
+		log.Fatal(err)
+	}
+	for _, decl := range f.Decls {
+		if v, ok := decl.(*ast.GenDecl); ok {
+			fmt.Printf(&quot;token: %v\n&quot;, v.Tok)
+			for _, spec := range v.Specs {
+				ast.Print(nil, spec)
+			}
+		}
+	}
+}
+
+const src = `package foo
+var Pi = 3.14
+`
+</code></pre>
+<p>输出的结果如下：</p>
+<pre><code>token: var
+ 0  *ast.ValueSpec {
+ 1  .  Names: []*ast.Ident (len = 1) {
+ 2  .  .  0: *ast.Ident {
+ 3  .  .  .  NamePos: 17
+ 4  .  .  .  Name: &quot;Pi&quot;
+ 5  .  .  .  Obj: *ast.Object {
+ 6  .  .  .  .  Kind: var
+ 7  .  .  .  .  Name: &quot;Pi&quot;
+ 8  .  .  .  .  Decl: *(obj @ 0)
+ 9  .  .  .  .  Data: 0
+10  .  .  .  }
+11  .  .  }
+12  .  }
+13  .  Values: []ast.Expr (len = 1) {
+14  .  .  0: *ast.BasicLit {
+15  .  .  .  ValuePos: 22
+16  .  .  .  Kind: FLOAT
+17  .  .  .  Value: &quot;3.14&quot;
+18  .  .  }
+19  .  }
+20  }
+</code></pre>
+<p>首先输出的Tok值为<code>var</code>，表示这是一个变量声明。变量的名字和类型通过<code>*ast.ValueSpec</code>结构表示。</p>
+<h2>5.5 按组声明</h2>
+<p>支持按组声明的语法有着类似以下的语法结构：</p>
+<pre><code class="language-bnf">XxxDecl = &quot;xxx&quot; ( XxxSpec | &quot;(&quot; { XxxSpec &quot;;&quot; } &quot;)&quot; ) .
+XxxSpec = ...
+</code></pre>
+<p>其中xxx表示声明开头的关键字，基础声明部分的导入声明、类型声明、常量和变量声明都支持按组声明的方式。但是函数的声明是不支持按组的方式的，因此声明部分将函数的声明从基础声明独立出来处理。</p>
+<p>以下的例子定义了一个常量和两个变量，其中常量是独立声明，两个变量是按组声明：</p>
+<pre><code class="language-go">const Pi = 3.14
+
+var (
+	a int
+	b bool
+)
+</code></pre>
+<p>以上代码对应语法树的逻辑结构如图所示：</p>
+<p><img src="../images/ch5-decl-group-01.png" alt=""></p>
+<p>因为第一个出现的是<code>const</code>关键字，因此<code>*ast.File.Decls</code>的第一个元素是表示常量的<code>*ast.GenDecl</code>类型，其中Specs列表只有一个元素对应Pi常量。第二个出现的是<code>var</code>关键字，因此<code>*ast.File.Decls</code>的第二个元素是表示变量的<code>*ast.GenDecl</code>类型，其中Specs列表有两个元素分别对应a和b两个变量，Specs列表的长度对应组声明中元素的个数。</p>
+
+
+                        
+
+                        
+                            <div id="giscus-container"></div>
+                        
+
+                        
+                            <footer class="page-footer">
+                                <span>© 2019-2022 | <a href="https://github.com/chai2010/go-ast-book">柴树杉、史斌、丁尔男</a> 保留所有权利</span>
+                            </footer>
+                        
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../ch4/readme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                            <!-- ../ch6/readme.html -->
+                            <a rel="next" href="../ch6/readme.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../ch4/readme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                
+                    <a rel="next" href="../ch6/readme.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../static/wabook/mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+            var pagePath = "ch5/readme.md"
+        </script>
+
+        <!-- Custom JS scripts -->
+        
+            <script src="../static/wabook/giscus.js" type="text/javascript" charset="utf-8"></script>
+        
+
+    </body>
+</html>

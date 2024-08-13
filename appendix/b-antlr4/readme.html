@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using https://github.com/wa-lang/wabook -->
+        <meta charset="UTF-8">
+        <title>附录B ANTLR4 - Go语言定制指南</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../static/wabook/css/variables.css">
+        <link rel="stylesheet" href="../../static/wabook/css/general.css">
+        <link rel="stylesheet" href="../../static/wabook/css/chrome.css">
+        <link rel="stylesheet" href="../../static/wabook/css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../static/wabook/FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../static/wabook/fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../static/wabook/highlight.css">
+        <link rel="stylesheet" href="../../static/wabook/tomorrow-night.css">
+        <link rel="stylesheet" href="../../static/wabook/ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('wabook-theme');
+                var sidebar = localStorage.getItem('wabook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('wabook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('wabook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('wabook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('wabook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter">
+  <li class="chapter-item expanded ">
+    <a href="../../index.html" >Go语言定制指南</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../preface.html" >前言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch1/readme.html" ><strong aria-hidden="true">1.</strong> 第1章 记号</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch2/readme.html" ><strong aria-hidden="true">2.</strong> 第2章 基础面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch3/readme.html" ><strong aria-hidden="true">3.</strong> 第3章 基础表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch4/readme.html" ><strong aria-hidden="true">4.</strong> 第4章 代码结构</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch5/readme.html" ><strong aria-hidden="true">5.</strong> 第5章 通用声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch6/readme.html" ><strong aria-hidden="true">6.</strong> 第6章 函数声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch7/readme.html" ><strong aria-hidden="true">7.</strong> 第7章 复合类型</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch8/readme.html" ><strong aria-hidden="true">8.</strong> 第8章 复合面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch9/readme.html" ><strong aria-hidden="true">9.</strong> 第9章 复合表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch10/readme.html" ><strong aria-hidden="true">10.</strong> 第10章 语句块和语句</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch11/readme.html" ><strong aria-hidden="true">11.</strong> 第11章 类型检查</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch12/readme.html" ><strong aria-hidden="true">12.</strong> 第12章 语义信息</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch13/readme.html" ><strong aria-hidden="true">13.</strong> 第13章 SSA形式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch14/readme.html" ><strong aria-hidden="true">14.</strong> 第14章 凹语言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch15/readme.html" ><strong aria-hidden="true">15.</strong> 第15章 LLVM简介</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch16/readme.html" ><strong aria-hidden="true">16.</strong> 第16章 LLVM实例</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../appendix/a-goyacc/readme.html" >附录A goyacc</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../appendix/b-antlr4/readme.html" class="active">附录B ANTLR4</a>
+  </li>
+</ol>
+
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title"><a href="../../index.html">Go语言定制指南</a></h1>
+
+                    <div class="right-buttons">
+                        <a href="https://github.com/chai2010/go-ast-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/chai2010/go-ast-book/edit/master/appendix/b-antlr4/readme.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                    <main>
+                        <ul dir="auto"><li><em>凹语言(Go实现, 面向WASM设计): <a href="https://github.com/wa-lang/wa">https://github.com/wa-lang/wa</a></em></li><li><em>WaBook(Go语言实现的MD电子书构建工具): <a href="https://github.com/wa-lang/wabook">https://github.com/wa-lang/wabook</a></em></li></ul><hr>
+
+                        <h1>附录B ANTLR4</h1>
+<p>ANTLR（ANother Tool for Language Recognition）是由Terence Parr博士开发的的语法分析器生成工具，可用于读取、处理、执行和翻译结构化的文件。ANTLR第一版采用C语言开发在1989年发布（第一版名字叫PCCTS），ANTLR2开始改用Java语言实现并在1997年发布第一版本，ANTLR3和ANTLR4分别在2005年和2013年发布，支持Go语言的ANTLR4.6在2016年底发布，从诞生到现在ANTLR已经有30多年的发展历史。目前ANTLR已经成为很多语言、工具和框架软件的基石，本节我们将简单展示如何通过ANTLR4构造一个Go语言版本的计算器。</p>
+<h2>B.1 构造语法文件</h2>
+<p>首先创建<code>Calc.g4</code>文件描述表达式语法：</p>
+<pre><code class="language-antlr4">// Calc.g4
+grammar Calc;
+
+// Tokens
+MUL: '*';
+DIV: '/';
+ADD: '+';
+SUB: '-';
+NUMBER: [0-9]+;
+WHITESPACE: [ \r\n\t]+ -&gt; skip;
+
+// Rules
+start : expression EOF;
+
+expression
+   : expression op=('*'|'/') expression # MulDiv
+   | expression op=('+'|'-') expression # AddSub
+   | NUMBER                             # Number
+   ;
+</code></pre>
+<p>其中<code>MUL</code>、<code>DIV</code>、<code>ADD</code>、<code>SUB</code>、<code>NUMBER</code>和<code>WHITESPACE</code>采用大写名字书写的规则表示词法记号，每个词法规则采用类似正则表达式的语法书写，最后<code>WHITESPACE</code>后的<code>-&gt; skip</code>动作表示跳过空白字符。</p>
+<p>而以小写字母表示的<code>start</code>和<code>expression</code>则是采用BNF语法书写的语法规则：第一个<code>start</code>表示语法的开始，<code>expression</code>表示表达式语法。如果语法对应多个不同的规则，第一出现的规则优先级最高，同时每个规则后面的<code># MulDiv</code>表示响应改规则的方法名字。</p>
+<p>安装ANTLR4的jar包之后，可以用以下的命令输出Go语言版本的语法解析器：</p>
+<pre><code>$ java -jar antlr-4.8-complete.jar -Dlanguage=Go -o calc Calc.g4
+</code></pre>
+<p>其中<code>-Dlanguage=Go</code>表示输出Go语言版本的解析器代码，<code>-o calc</code>表示将Go代码输出到<code>calc</code>目录下。</p>
+<h2>B.2 基于生成代码构造解析器</h2>
+<p>ANTLR4生成的代码已经包含了表达式完整的词法和语法分析器。比如可以按照如下方式为<code>&quot;1+2*3&quot;</code>表达式构造表达式分析器：</p>
+<pre><code class="language-go">import (
+	&quot;github.com/antlr/antlr4/runtime/Go/antlr&quot;
+
+	calc &quot;./calc&quot;
+)
+
+func main() {
+	lexer := calc.NewCalcLexer(antlr.NewInputStream(&quot;1+2*3&quot;))
+	parser := calc.NewCalcParser(antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel))
+	...
+}
+</code></pre>
+<p>首先生成的<code>calc.NewCalcLexer</code>函数基于<code>antlr.NewInputStream(&quot;1+2*3&quot;)</code>输入的文本流构建词分析器。然后<code>calc.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)</code>将解析到的词法记号转化为记号流传递给生成的<code>calc.NewCalcParser</code>语法解析函数。</p>
+<p>查看生成的<code>CalcParser</code>结构体的导出方法：</p>
+<pre><code class="language-go">$ go doc CalcParser
+package parser // import &quot;.&quot;
+
+type CalcParser struct {
+	*antlr.BaseParser
+}
+
+func NewCalcParser(input antlr.TokenStream) *CalcParser
+func (p *CalcParser) Expression() (localctx IExpressionContext)
+func (p *CalcParser) Expression_Sempred(localctx antlr.RuleContext, predIndex int) bool
+func (p *CalcParser) Sempred(localctx antlr.RuleContext, ruleIndex, predIndex int) bool
+func (p *CalcParser) Start() (localctx IStartContext)
+</code></pre>
+<p>其中<code>Start()</code>返回当前语法解析器得到的一个名字为<code>start</code>的规则对应的语法树。</p>
+<h2>B.3 <code>calc.CalcListener</code>接口</h2>
+<p>要遍历语法树必须先实现<code>calc.CalcListener</code>接口：</p>
+<pre><code class="language-go">// CalcListener is a complete listener for a parse tree produced by CalcParser.
+type CalcListener interface {
+	antlr.ParseTreeListener
+
+	EnterStart(c *StartContext)
+	EnterNumber(c *NumberContext)
+	EnterMulDiv(c *MulDivContext)
+	EnterAddSub(c *AddSubContext)
+	ExitStart(c *StartContext)
+	ExitNumber(c *NumberContext)
+	ExitMulDiv(c *MulDivContext)
+	ExitAddSub(c *AddSubContext)
+}
+</code></pre>
+<p>每个规则都有对应的进入和退出方法，比如<code>EnterMulDiv</code>和<code>ExitMulDiv</code>对应<code># MulDiv</code>标柱的语法规则。这里我们只关心乘除法和加减法的规则，实现<code>calcListener</code>如下：</p>
+<pre><code class="language-go">type calcListener struct {
+	*cacl.BaseCalcListener
+}
+
+func (l *calcListener) ExitMulDiv(c *parser.MulDivContext) { /* TODO */ }
+func (l *calcListener) ExitAddSub(c *parser.AddSubContext) { /* TODO */ }
+func (l *calcListener) ExitNumber(c *parser.NumberContext) { /* TODO */ }
+</code></pre>
+<p>其中<code>calc.BaseCalcListener</code>是ANTLR4实现的基础遍历者，基于这个对象继承的<code>calcListener</code>结构体只需要重新实现需要的方法即可满足<code>calc.CalcListener</code>接口。</p>
+<h2>B.3 实现遍历规则的方法</h2>
+<p>对于带小括号的四则运算表达式需要一个临时栈用于保存中间结果：</p>
+<pre><code class="language-go">type calcListener struct {
+	*cacl.BaseCalcListener
+	stk []int
+}
+
+func (p *calcListener) push(i int) {
+	p.stk = append(p.stk, i)
+}
+func (p *calcListener) pop() int {
+	result := p.stk[len(p.stk)-1]
+	p.stk = p.stk[:len(p.stk)-1]
+	return result
+}
+</code></pre>
+<p>其中<code>push</code>和<code>pop</code>分别对于入栈和出栈操作。然后就可以先实现<code>ExitNumber</code>方法，它在退出一个数字前被调用：</p>
+<pre><code class="language-go">func (l *calcListener) ExitNumber(c *parser.NumberContext) {
+	i, _ := strconv.Atoi(c.GetText())
+	l.push(i)
+}
+</code></pre>
+<p>通过<code>c.GetText()</code>从当前上下文获取当前的数字，然后通过<code>l.push(i)</code>压入临时栈保存。然后分别在乘除法和加减法规则时从栈消费临时栈保存的中间结果，最终将运算的中间结果再压入临时栈中。</p>
+<p>乘除法和加减法对应的<code>ExitMulDiv</code>和<code>ExitAddSub</code>方法实现如下：</p>
+<pre><code class="language-go">func (l *calcListener) ExitMulDiv(c *parser.MulDivContext) {
+	right, left := l.pop(), l.pop()
+	switch c.GetOp().GetTokenType() {
+	case parser.CalcParserMUL:
+		l.push(left * right)
+	case parser.CalcParserDIV:
+		l.push(left / right)
+	}
+}
+
+func (l *calcListener) ExitAddSub(c *parser.AddSubContext) {
+	right, left := l.pop(), l.pop()
+	switch c.GetOp().GetTokenType() {
+	case parser.CalcParserADD:
+		l.push(left + right)
+	case parser.CalcParserSUB:
+		l.push(left - right)
+	}
+}
+</code></pre>
+<p>需要注意的是<code>l.pop()</code>从临时栈先弹出的值是二元表达式右边的值。<code>c.GetOp().GetTokenType()</code>是通过当前上下文获得当前运算符，获取运算符记号对应的函数名<code>GetOp</code>是根据<code>expression op=('*'|'/') expression</code>语法中的<code>op=('*'|'/')</code>名字生成。</p>
+<h2>B.4 遍历语法树</h2>
+<p>现在就可以通过以下方法遍历针对返回的语法树：</p>
+<pre><code class="language-go">func main() {
+	lexer := calc.NewCalcLexer(antlr.NewInputStream(&quot;1+2*3&quot;))
+	parser := calc.NewCalcParser(antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel))
+
+	var l calc.CalcListener = new(calcListener)
+	antlr.NewParseTreeWalker().Walk(l, parser.Start())
+	fmt.Println(l.(*calcListener).pop())
+}
+</code></pre>
+<p>其中<code>l</code>是刚实现的满足<code>calc.CalcListener</code>接口的遍历者对象，<code>parser.Start()</code>是表达式解析后得到的语法树。如果表达式没有语法错误，遍历完成之后通过<code>pop()</code>方法从临时栈中弹出最后的运算结果。</p>
+<h2>B.5 补充说明</h2>
+<p>ANTLR4对Go语言支持虽然只有几年时间但是已经足够稳定，比如Google基于Protobuf设计的CEL验证语言的Go语言版本就是基于ANTLR4生成语法解析器。ANTLR4是功能强大的语法解析器生成工具，不仅仅支持基于Listener模式的遍历，还支持通过Visitor模式支持更多定制操作的语法树遍历。此外ANTLR4在社区中配套的辅助工具也非常完善，比如VSCode就有对应的插件以铁路图等不同等方式展示语法文件。更详细的用法请参考Terence Parr博士的《编程语言实现模式》和《ANTLR4权威指南》，它们才是码农真正需要的屠龙刀和倚天剑。</p>
+
+
+                        
+
+                        
+                            <div id="giscus-container"></div>
+                        
+
+                        
+                            <footer class="page-footer">
+                                <span>© 2019-2022 | <a href="https://github.com/chai2010/go-ast-book">柴树杉、史斌、丁尔男</a> 保留所有权利</span>
+                            </footer>
+                        
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../appendix/a-goyacc/readme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../appendix/a-goyacc/readme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../static/wabook/mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../static/wabook/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../static/wabook/highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../static/wabook/book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+            var pagePath = "appendix/b-antlr4/readme.md"
+        </script>
+
+        <!-- Custom JS scripts -->
+        
+            <script src="../../static/wabook/giscus.js" type="text/javascript" charset="utf-8"></script>
+        
+
+    </body>
+</html>

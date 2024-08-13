@@ -1,0 +1,477 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using https://github.com/wa-lang/wabook -->
+        <meta charset="UTF-8">
+        <title>附录A goyacc - Go语言定制指南</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../static/wabook/css/variables.css">
+        <link rel="stylesheet" href="../../static/wabook/css/general.css">
+        <link rel="stylesheet" href="../../static/wabook/css/chrome.css">
+        <link rel="stylesheet" href="../../static/wabook/css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../static/wabook/FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../static/wabook/fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../static/wabook/highlight.css">
+        <link rel="stylesheet" href="../../static/wabook/tomorrow-night.css">
+        <link rel="stylesheet" href="../../static/wabook/ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('wabook-theme');
+                var sidebar = localStorage.getItem('wabook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('wabook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('wabook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('wabook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('wabook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter">
+  <li class="chapter-item expanded ">
+    <a href="../../index.html" >Go语言定制指南</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../preface.html" >前言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch1/readme.html" ><strong aria-hidden="true">1.</strong> 第1章 记号</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch2/readme.html" ><strong aria-hidden="true">2.</strong> 第2章 基础面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch3/readme.html" ><strong aria-hidden="true">3.</strong> 第3章 基础表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch4/readme.html" ><strong aria-hidden="true">4.</strong> 第4章 代码结构</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch5/readme.html" ><strong aria-hidden="true">5.</strong> 第5章 通用声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch6/readme.html" ><strong aria-hidden="true">6.</strong> 第6章 函数声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch7/readme.html" ><strong aria-hidden="true">7.</strong> 第7章 复合类型</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch8/readme.html" ><strong aria-hidden="true">8.</strong> 第8章 复合面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch9/readme.html" ><strong aria-hidden="true">9.</strong> 第9章 复合表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch10/readme.html" ><strong aria-hidden="true">10.</strong> 第10章 语句块和语句</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch11/readme.html" ><strong aria-hidden="true">11.</strong> 第11章 类型检查</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch12/readme.html" ><strong aria-hidden="true">12.</strong> 第12章 语义信息</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch13/readme.html" ><strong aria-hidden="true">13.</strong> 第13章 SSA形式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch14/readme.html" ><strong aria-hidden="true">14.</strong> 第14章 凹语言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch15/readme.html" ><strong aria-hidden="true">15.</strong> 第15章 LLVM简介</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../ch16/readme.html" ><strong aria-hidden="true">16.</strong> 第16章 LLVM实例</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../appendix/a-goyacc/readme.html" class="active">附录A goyacc</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../../appendix/b-antlr4/readme.html" >附录B ANTLR4</a>
+  </li>
+</ol>
+
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title"><a href="../../index.html">Go语言定制指南</a></h1>
+
+                    <div class="right-buttons">
+                        <a href="https://github.com/chai2010/go-ast-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/chai2010/go-ast-book/edit/master/appendix/a-goyacc/readme.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                    <main>
+                        <ul dir="auto"><li><em>凹语言(Go实现, 面向WASM设计): <a href="https://github.com/wa-lang/wa">https://github.com/wa-lang/wa</a></em></li><li><em>WaBook(Go语言实现的MD电子书构建工具): <a href="https://github.com/wa-lang/wabook">https://github.com/wa-lang/wabook</a></em></li></ul><hr>
+
+                        <h1>附录A goyacc</h1>
+<p>yacc是用于构造编译器的工具，而goyacc是Go语言版本的yacc，是从早期的C语言版本yacc移植到Go语言的。早期的goyacc是Go语言标准命令之一，也是构建Go自身编译器的必备工具链之一，后来被逐步移出了内置工具。但是goyacc依然是一个开发语法分析器的利器。本章简单展示如何用goyacc构建一个命令行计算器小程序。</p>
+<h2>A.1 计算器的特性</h2>
+<p>特性简介：</p>
+<ul>
+<li>支持整数四则运算</li>
+<li>支持小括弧提升优先级</li>
+<li>支持临时变量保存结果</li>
+</ul>
+<p>安装和使用(需要有GCC环境)：</p>
+<pre><code class="language-shell">$ go get github.com/chai2010/calculator
+$ calculator
+1+2*3
+= 7
+x=3-(2-1)
+= 2
+x*2
+= 4
+</code></pre>
+<h2>A.2 词法符号</h2>
+<p>先创建<code>tok.h</code>文件，包含词法符号：</p>
+<pre><code class="language-c">enum {
+	ILLEGAL = 10000,
+	EOL = 10001,
+
+	ID = 258,
+	NUMBER = 259,
+
+	ADD = 260, // +
+	SUB = 261, // -
+	MUL = 262, // *
+	DIV = 263, // /
+	ABS = 264, // |
+
+	LPAREN = 265, // (
+	RPAREN = 266, // )
+	ASSIGN = 267, // =
+};
+</code></pre>
+<p>其中<code>ILLEGAL</code>表示不能识别的无效的符号，<code>EOL</code>表示行的结尾，其它的符号与字面含义相同。</p>
+<h2>A.3 词法解析</h2>
+<p>然后创建<code>calc.l</code>文件，定义每种词法的正则表达式：</p>
+<pre><code class="language-lex">%option noyywrap
+
+%{
+#include &quot;tok.h&quot;
+%}
+
+%%
+
+[_a-zA-Z]+ { return ID; }
+[0-9]+     { return NUMBER; }
+
+&quot;+&quot;    { return ADD; }
+&quot;-&quot;    { return SUB; }
+&quot;*&quot;    { return MUL; }
+&quot;/&quot;    { return DIV; }
+&quot;|&quot;    { return ABS; }
+
+&quot;(&quot;    { return LPAREN; }
+&quot;)&quot;    { return RPAREN; }
+&quot;=&quot;    { return ASSIGN; }
+
+\n     { return EOL; }
+[ \t]  { /* ignore whitespace */ }
+.      { return ILLEGAL; }
+
+%%
+</code></pre>
+<p>最开始的<code>noyywrap</code>选项表示关闭<code>yywrap</code>特性，也就是去掉对flex库的依赖，生成可移植的词法分析器代码。然后在<code>%{</code>和<code>%}</code>中间是原生的C语言代码，通过包含<code>tok.h</code>引入了每种记号对应的枚举类型。在两组<code>%%</code>中间的部分是每种记号对应的正则表达式，先出现的优先匹配，如果匹配失败则继续尝试后面的规则。每个正则表达式后面跟着一组动作代码，也就是普通的C语言代码，这里都是返回记号的类型。</p>
+<p>然后通过flex工具生成C语言词法解析器文件：</p>
+<pre><code class="language-shell">$ flex --prefix=yy --header-file=calc.lex.h -o calc.lex.c calc.l
+</code></pre>
+<p>其中<code>--prefix</code>表示生成的代码中标识符都是以<code>yy</code>前缀。在一个项目有多个flex生成代码时，可通过前缀区分。<code>--header-file</code>表示生成头问题，这样方便在其它代码中引用生成的词法分析函数。<code>-o</code>指定输出源代码文件的名字。</p>
+<p>生成的词法分析器中，最重要的有以下几个：</p>
+<pre><code class="language-c">extern int yylineno;
+extern char *yytext;
+
+extern int yylex (void);
+</code></pre>
+<p>其中<code>yylineno</code>表示当前的行号，<code>yytext</code>表示当前记号对应的字符串。而<code>yylex</code>函数每次从标准输入读取一个记号，返回记号类型的值（在<code>tok.h</code>文件定义），如果遇到文件结尾则返回0。</p>
+<p>如果需要从字符串解析，则需使用以下的导出函数：</p>
+<pre><code class="language-c">YY_BUFFER_STATE yy_scan_bytes (yyconst char *bytes,yy_size_t len  );
+</code></pre>
+<p>通过<code>yy_scan_bytes</code>函数，可以设置字符串作为要解析的目标，然后每次调用<code>yylex</code>函数就会从字符串读取数据。这些函数都在<code>calc.lex.h</code>文件中声明。</p>
+<h2>A.4 将C语言词法分析器包装为Go函数</h2>
+<p>创建<code>lex.go</code>文件，内容如下：</p>
+<pre><code class="language-go">package main
+
+//#include &quot;tok.h&quot;
+//#include &quot;calc.lex.h&quot;
+import &quot;C&quot;
+
+type calcLex struct {}
+
+func newCalcLexer(data []byte) *calcLex {
+	p := new(calcLex)
+	C.yy_scan_bytes((*C.char)(C.CBytes(data)), C.yy_size_t(len(data)))
+	return p
+}
+
+func (p *calcLex) Lex(yylval *calcSymType) int {
+	var tok = C.yylex()
+	var yylineno = int(C.yylineno)
+	var yytext = C.GoString(C.yytext)
+
+	switch tok {
+	case C.ID:
+		// yylval.id = yytext
+		return ID
+
+	case C.NUMBER:
+		//yylval.value, _ = strconv.Atoi(yytext)
+		return NUMBER
+
+	case C.ADD:
+		return ADD
+	// ...
+
+	case C.EOL:
+		return EOL
+	}
+
+	if tok == C.ILLEGAL {
+		log.Printf(&quot;lex: ILLEGAL token, yytext = %q, yylineno = %d&quot;, yytext, yylineno)
+	}
+
+	return 0 // eof
+}
+</code></pre>
+<p>新建的<code>calcLex</code>类型对应Go语言版本的词法分析器，底层工作通过CGO调用flex生成的C语言函数完成。首先<code>newCalcLexer</code>创建一个词法分析器，参数是要分析的数据，通过<code>C.yy_scan_bytes</code>函数调用表示从字符串解析记号。然后<code>calcLex</code>类型的<code>Lex</code>方法表示每次需要解析一个记号（暂时忽略方法的<code>calcSymType</code>参数），内部通过调用<code>C.yylex()</code>读取一个记号，同时记录行号和记号对应的字符串。最后将C语言的记号转为Go语言的记号值返回，比如<code>C.ID</code>对应Go语言的<code>ID</code>。</p>
+<p>对应<code>ID</code>类型，<code>yytext</code>表示变量的名字。对于<code>NUMBER</code>类型，<code>yytext</code>保护数字对应的字符串，可以从字符串解析出数值。但是，Go语言的词法分析器如何返回变量的名字或者是数字的值呢？答案是通过<code>Lex</code>的<code>*calcSymType</code>类型的参数可以记录记号额外的属性值。而<code>calcSymType</code>类型是由<code>goyacc</code>工具生成的代码，在下面我们将介绍yacc的内容。</p>
+<h2>A.5 <code>goyacc</code>生成语法解析器</h2>
+<p><code>goyacc</code>是Go语言版本的yacc工具，是由Go语言官方团队维护的扩展包工具。</p>
+<p>创建<code>calc.y</code>文件：</p>
+<pre><code class="language-yacc">%{
+package main
+
+var idValueMap = map[string]int{}
+%}
+
+%union {
+	value int
+	id    string
+}
+
+%type  &lt;value&gt; exp factor term
+%token &lt;value&gt; NUMBER
+%token &lt;id&gt;    ID
+
+%token ADD SUB MUL DIV ABS
+%token LPAREN RPAREN ASSIGN
+%token EOL
+
+%%
+calclist
+	: // nothing
+	| calclist exp EOL {
+		idValueMap[&quot;_&quot;] = $2
+		fmt.Printf(&quot;= %v\n&quot;, $2)
+	}
+	| calclist ID ASSIGN exp EOL {
+		idValueMap[&quot;_&quot;] = $4
+		idValueMap[$2] = $4
+		fmt.Printf(&quot;= %v\n&quot;, $4)
+	}
+	;
+
+exp
+	: factor         { $$ = $1 }
+	| exp ADD factor { $$ = $1 + $3 }
+	| exp SUB factor { $$ = $1 - $3 }
+	;
+
+factor
+	: term            { $$ = $1 }
+	| factor MUL term { $$ = $1 * $3 }
+	| factor DIV term { $$ = $1 / $3 }
+	;
+
+term
+	: NUMBER            { $$ = $1 }
+	| ID                { $$ = idValueMap[$1] }
+	;
+
+%%
+</code></pre>
+<p>和flex工具类型，首先在<code>%{</code>和<code>%}</code>中间是原生的Go语言代码。然后<code>%union</code>定义了属性值，用于记录语法解析中每个规则额外的属性值。通过<code>%type</code>定义BNF规则中非终结的名字，<code>%token</code>定义终结记号名字（和flex定义的记号类型是一致的）。而<code>%type</code>和<code>%token</code>就可以通过<code>&lt;value&gt;</code>或<code>&lt;id&gt;</code>的可选语法，将后面的名字绑定到属性。就是后续代码中<code>$$</code>对应的属性，比如<code>%token &lt;id&gt; ID</code>表示<code>ID</code>对应的属性为<code>id</code>，因此在后面的<code>ID { $$ = idValueMap[$1] }</code>表示数值<code>id</code>属性的值，其中<code>idValueMap</code>用于管理变量的值。</p>
+<p>然后通过goyacc工具生成代码：</p>
+<pre><code class="language-shell">$ goyacc -o calc.y.go -p &quot;calc&quot; calc.y
+</code></pre>
+<p>其中<code>-o</code>指定输出的文件名，<code>-p</code>指定标识符名字前缀（和flex的<code>--prefix</code>用法类似）。在生成的<code>calc.y.go</code>文件中将包含最重要的<code>calcParse</code>函数，该函数从指定的词法解析器中读取词法，然后进行语法分析。同时将包含<code>calcSymType</code>类型的定义，它是<code>Lex</code>词法函数的输出参数的类型。</p>
+<p>在绑定了属性之后，还需要继续完善<code>Lex</code>词法函数的代码：</p>
+<pre><code class="language-go">func (p *calcLex) Lex(yylval *calcSymType) int {
+	var tok = C.yylex()
+	var yylineno = int(C.yylineno)
+	var yytext = C.GoString(C.yytext)
+
+	switch tok {
+	case C.ID:
+		yylval.id = yytext
+		return ID
+
+	case C.NUMBER:
+		yylval.value, _ = strconv.Atoi(yytext)
+		return NUMBER
+
+	...
+}
+</code></pre>
+<p>其中<code>yylval.id = yytext</code>表示词法将解析得到的变量名字填充到<code>id</code>属性中。而数字部分则是通过<code>yylval.value</code>属性保存。</p>
+<h2>A.6 运行计算器</h2>
+<p>创建main函数：</p>
+<pre><code class="language-go">func main() {
+	calcParse(newCalcLexer([]byte(&quot;1+2*3&quot;)))
+}
+</code></pre>
+<p><code>newCalcLexer</code>构造一个词法解析器，然后<code>calcParse</code>语法解析器将从词法解析器依次读取记号并解析语法，在解析语法的同时将进行表达式求值运算，同时更新<code>idValueMap</code>全局的变量。</p>
+
+
+                        
+
+                        
+                            <div id="giscus-container"></div>
+                        
+
+                        
+                            <footer class="page-footer">
+                                <span>© 2019-2022 | <a href="https://github.com/chai2010/go-ast-book">柴树杉、史斌、丁尔男</a> 保留所有权利</span>
+                            </footer>
+                        
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../ch16/readme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                            <!-- ../../appendix/b-antlr4/readme.html -->
+                            <a rel="next" href="../../appendix/b-antlr4/readme.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../ch16/readme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                
+                    <a rel="next" href="../../appendix/b-antlr4/readme.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../static/wabook/mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../static/wabook/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../static/wabook/highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../static/wabook/book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+            var pagePath = "appendix/a-goyacc/readme.md"
+        </script>
+
+        <!-- Custom JS scripts -->
+        
+            <script src="../../static/wabook/giscus.js" type="text/javascript" charset="utf-8"></script>
+        
+
+    </body>
+</html>

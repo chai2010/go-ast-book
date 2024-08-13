@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using https://github.com/wa-lang/wabook -->
+        <meta charset="UTF-8">
+        <title>第3章 基础表达式 - Go语言定制指南</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../static/wabook/css/variables.css">
+        <link rel="stylesheet" href="../static/wabook/css/general.css">
+        <link rel="stylesheet" href="../static/wabook/css/chrome.css">
+        <link rel="stylesheet" href="../static/wabook/css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../static/wabook/FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../static/wabook/fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../static/wabook/highlight.css">
+        <link rel="stylesheet" href="../static/wabook/tomorrow-night.css">
+        <link rel="stylesheet" href="../static/wabook/ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('wabook-theme');
+                var sidebar = localStorage.getItem('wabook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('wabook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('wabook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('wabook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('wabook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter">
+  <li class="chapter-item expanded ">
+    <a href="../index.html" >Go语言定制指南</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../preface.html" >前言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch1/readme.html" ><strong aria-hidden="true">1.</strong> 第1章 记号</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch2/readme.html" ><strong aria-hidden="true">2.</strong> 第2章 基础面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch3/readme.html" class="active"><strong aria-hidden="true">3.</strong> 第3章 基础表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch4/readme.html" ><strong aria-hidden="true">4.</strong> 第4章 代码结构</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch5/readme.html" ><strong aria-hidden="true">5.</strong> 第5章 通用声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch6/readme.html" ><strong aria-hidden="true">6.</strong> 第6章 函数声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch7/readme.html" ><strong aria-hidden="true">7.</strong> 第7章 复合类型</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch8/readme.html" ><strong aria-hidden="true">8.</strong> 第8章 复合面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch9/readme.html" ><strong aria-hidden="true">9.</strong> 第9章 复合表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch10/readme.html" ><strong aria-hidden="true">10.</strong> 第10章 语句块和语句</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch11/readme.html" ><strong aria-hidden="true">11.</strong> 第11章 类型检查</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch12/readme.html" ><strong aria-hidden="true">12.</strong> 第12章 语义信息</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch13/readme.html" ><strong aria-hidden="true">13.</strong> 第13章 SSA形式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch14/readme.html" ><strong aria-hidden="true">14.</strong> 第14章 凹语言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch15/readme.html" ><strong aria-hidden="true">15.</strong> 第15章 LLVM简介</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch16/readme.html" ><strong aria-hidden="true">16.</strong> 第16章 LLVM实例</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/a-goyacc/readme.html" >附录A goyacc</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/b-antlr4/readme.html" >附录B ANTLR4</a>
+  </li>
+</ol>
+
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title"><a href="../index.html">Go语言定制指南</a></h1>
+
+                    <div class="right-buttons">
+                        <a href="https://github.com/chai2010/go-ast-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/chai2010/go-ast-book/edit/master/ch3/readme.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                    <main>
+                        <ul dir="auto"><li><em>凹语言(Go实现, 面向WASM设计): <a href="https://github.com/wa-lang/wa">https://github.com/wa-lang/wa</a></em></li><li><em>WaBook(Go语言实现的MD电子书构建工具): <a href="https://github.com/wa-lang/wabook">https://github.com/wa-lang/wabook</a></em></li></ul><hr>
+
+                        <h1>第3章 基础表达式</h1>
+<p>为了简化代码，我们从基础表达式开始。基础表达式是指完全由数值型面值和标识符组成的表达式。</p>
+<h2>3.1 基础表达式语法</h2>
+<p>基础表达式主要是指由一元和二元运算符组成的表达式，运算的主体是各种面值或标识符。基础表达式语法如下：</p>
+<pre><code>Expression = UnaryExpr | Expression binary_op Expression .
+UnaryExpr  = Operand | unary_op UnaryExpr .
+Operand    = Literal | identifier | &quot;(&quot; Expression &quot;)&quot; .
+
+binary_op  = &quot;||&quot; | &quot;&amp;&amp;&quot; | rel_op | add_op | mul_op .
+rel_op     = &quot;==&quot; | &quot;!=&quot; | &quot;&lt;&quot; | &quot;&lt;=&quot; | &quot;&gt;&quot; | &quot;&gt;=&quot; .
+add_op     = &quot;+&quot; | &quot;-&quot; | &quot;|&quot; | &quot;^&quot; .
+mul_op     = &quot;*&quot; | &quot;/&quot; | &quot;%&quot; | &quot;&lt;&lt;&quot; | &quot;&gt;&gt;&quot; | &quot;&amp;&quot; | &quot;&amp;^&quot; .
+
+unary_op   = &quot;+&quot; | &quot;-&quot; | &quot;!&quot; | &quot;^&quot; | &quot;*&quot; | &quot;&amp;&quot; | &quot;&lt;-&quot; .
+</code></pre>
+<p>其中Expression表示基础表达式的递归定义，可以是UnaryExpr类型的一元表达式，或者是binary_op生成的二元表达式。而基础表达式运算符两边的对象由Operand定义，主要是面值或表达式，也可以是由小括弧包含的表达式。</p>
+<h2>3.2 解析表达式</h2>
+<p><code>parser.ParseExpr</code>函数是解析的单个表达式（可以包含注释），因此返回的<code>ast.Expr</code>是一个表达式抽象接口：</p>
+<pre><code class="language-go">type Expr interface {
+    Node
+    // contains filtered or unexported methods
+}
+</code></pre>
+<p>除了内置一个<code>ast.Node</code>接口之外没有任何其它信息和约束（这是Go语言隐式接口的缺点，用户需要自己猜测接口之间的逻辑关系）。</p>
+<p>而<code>ast.Node</code>接口更简单，只有两个方法表示了这个语法树结点的开始位置和结束位置：</p>
+<pre><code class="language-go">type Node interface {
+    Pos() token.Pos // position of first character belonging to the node
+    End() token.Pos // position of first character immediately after the node
+}
+</code></pre>
+<p>通过分析<code>go/ast</code>包的文档可以发现很多类型以<code>Expr</code>为后缀名：</p>
+<pre><code class="language-bash">$ go doc go/ast | grep Expr
+type BadExpr struct{ ... }
+type BinaryExpr struct{ ... }
+type CallExpr struct{ ... }
+type Expr interface{ ... }
+type ExprStmt struct{ ... }
+type IndexExpr struct{ ... }
+type KeyValueExpr struct{ ... }
+type ParenExpr struct{ ... }
+type SelectorExpr struct{ ... }
+type SliceExpr struct{ ... }
+type StarExpr struct{ ... }
+type TypeAssertExpr struct{ ... }
+type UnaryExpr struct{ ... }
+</code></pre>
+<p>真实的表达式种类当然并不仅仅是这些，起码前面例子中的<code>ast.BasicLit</code>类型不在其中，不过目前我们并不需要<code>Expr</code>的全部类型列表。</p>
+<p>我们以<code>ast.BinaryExpr</code>表达的二元算术表达式开始，因为加减乘除四则运算是我们最熟悉的表达式结构：</p>
+<pre><code class="language-go">func main() {
+	expr, _ := parser.ParseExpr(`1+2*3`)
+	ast.Print(nil, expr)
+}
+</code></pre>
+<p>输出的结果如下：</p>
+<pre><code class="language-bash"> 0  *ast.BinaryExpr {
+ 1  .  X: *ast.BasicLit {
+ 2  .  .  ValuePos: 1
+ 3  .  .  Kind: INT
+ 4  .  .  Value: &quot;1&quot;
+ 5  .  }
+ 6  .  OpPos: 2
+ 7  .  Op: +
+ 8  .  Y: *ast.BinaryExpr {
+ 9  .  .  X: *ast.BasicLit {
+10  .  .  .  ValuePos: 3
+11  .  .  .  Kind: INT
+12  .  .  .  Value: &quot;2&quot;
+13  .  .  }
+14  .  .  OpPos: 4
+15  .  .  Op: *
+16  .  .  Y: *ast.BasicLit {
+17  .  .  .  ValuePos: 5
+18  .  .  .  Kind: INT
+19  .  .  .  Value: &quot;3&quot;
+20  .  .  }
+21  .  }
+22  }
+</code></pre>
+<p>下图是<code>parser.ParseExpr(&quot;1+2*3&quot;)</code>返回的树结构：</p>
+<p><img src="../images/ch3-expr-01.png" alt=""></p>
+<p>其中<code>ast.BasicLit</code>是基础面值类型，在前面章节已经讲过。而<code>ast.BinaryExpr</code>是表示二元表达式的结点，其定义如下：</p>
+<pre><code class="language-go">type BinaryExpr struct {
+    X     Expr        // left operand
+    OpPos token.Pos   // position of Op
+    Op    token.Token // operator
+    Y     Expr        // right operand
+}
+</code></pre>
+<p>其中Op成员表示二元运算符，而X和Y成员则对应运算符左右两个操作数。最重要的是，X和Y操作数都是<code>Expr</code>接口类型，这就可以构成递归定义！因此在输出的结果中，最外层的Y部分被填充为<code>*ast.BinaryExpr</code>类型的子语法树（这说明后出现的乘法有着更高的优先级）。</p>
+<h2>3.3 求值表达式</h2>
+<p>在了解了<code>ast.BinaryExpr</code>语法树的结构之后，其实我们就可以手工对表达式求值了：</p>
+<pre><code class="language-go">func main() {
+	expr, _ := parser.ParseExpr(`1+2*3`)
+	fmt.Println(Eval(expr))
+}
+
+func Eval(exp ast.Expr) float64 {
+	switch exp := exp.(type) {
+	case *ast.BinaryExpr:
+		return EvalBinaryExpr(exp)
+	case *ast.BasicLit:
+		f, _ := strconv.ParseFloat(exp.Value, 64)
+		return f
+	}
+	return 0
+}
+
+func EvalBinaryExpr(exp *ast.BinaryExpr) float64 {
+	switch exp.Op {
+	case token.ADD:
+		return Eval(exp.X) + Eval(exp.Y)
+	case token.MUL:
+		return Eval(exp.X) * Eval(exp.Y)
+	}
+	return 0
+}
+</code></pre>
+<p>其中Eval函数用于递归解析表达式，如果是二元表达式<code>*ast.BinaryExpr</code>类型则调用EvalBinaryExpr进行解析，如果是<code>*ast.BasicLit</code>面值类型则直接用<code>strconv.ParseFloat</code>解析浮点数面值。EvalBinaryExpr函数用于解析二元表达式，这里为了简单只展示了加法和乘法类型的运算符，然后在加法或乘法的左右子表达式中再调用Eval解析。</p>
+<p>Go语言中，表达式是所有运算的基础。很多功能性的函数也可以作为表达式的一个部分参与运算。如果表达式中再引入变量和函数就变得异常强大了。</p>
+<h2>3.4 标识符：为表达式中引入变量</h2>
+<p>在前面的例子中，我们已经尝试过数值类型的常量构成的表达式求值。我们现在尝试为表达式引入变量，变量由外部动态注入。</p>
+<p>还是先从一个简单的例子入手：</p>
+<pre><code class="language-go">func main() {
+    expr, _ := parser.ParseExpr(`x`)
+    ast.Print(nil, expr)
+}
+</code></pre>
+<p>输出结果如下：</p>
+<pre><code>0  *ast.Ident {
+1  .  NamePos: 1
+2  .  Name: &quot;x&quot;
+3  .  Obj: *ast.Object {
+4  .  .  Kind: bad
+5  .  .  Name: &quot;&quot;
+6  .  }
+7  }
+</code></pre>
+<p>表达式只有一个<code>x</code>，对应<code>*ast.Ident</code>类型。<code>*ast.Ident</code>类型的定义如下：</p>
+<pre><code class="language-go">type Ident struct {
+    NamePos token.Pos // identifier position
+    Name    string    // identifier name
+    Obj     *Object   // denoted object; or nil
+}
+</code></pre>
+<p>其中最重要的是<code>Name</code>成员，表示标识符的名字。这样我们就可以在递归解析时传入一个上下文参数，其中包含变量的值：</p>
+<pre><code class="language-go">func main() {
+	expr, _ := parser.ParseExpr(`1+2*3+x`)
+	fmt.Println(Eval(expr, map[string]float64{
+		&quot;x&quot;: 100,
+	}))
+}
+
+func Eval(exp ast.Expr, vars map[string]float64) float64 {
+	switch exp := exp.(type) {
+	case *ast.BinaryExpr:
+		return EvalBinaryExpr(exp, vars)
+	case *ast.BasicLit:
+		f, _ := strconv.ParseFloat(exp.Value, 64)
+		return f
+	case *ast.Ident:
+		return vars[exp.Name]
+	}
+	return 0
+}
+
+func EvalBinaryExpr(exp *ast.BinaryExpr, vars map[string]float64) float64 {
+	switch exp.Op {
+	case token.ADD:
+		return Eval(exp.X, vars) + Eval(exp.Y, vars)
+	case token.MUL:
+		return Eval(exp.X, vars) * Eval(exp.Y, vars)
+	}
+	return 0
+}
+</code></pre>
+<p>在Eval函数递归解析时，如果当前解析的表达式语法树结点是<code>*ast.Ident</code>类型，则直接从<code>vars</code>表格查询结果。</p>
+<p>不过在Go语言的表达式要复杂很多，不仅仅有普通的局部变量，还有数组索引求值、管道取值、其它结构的成员求值等类型。但是标识符是引入变量最基础的方法，我们可以在此基础方法之上慢慢完善更复杂的求值函数。</p>
+
+
+                        
+
+                        
+                            <div id="giscus-container"></div>
+                        
+
+                        
+                            <footer class="page-footer">
+                                <span>© 2019-2022 | <a href="https://github.com/chai2010/go-ast-book">柴树杉、史斌、丁尔男</a> 保留所有权利</span>
+                            </footer>
+                        
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../ch2/readme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                            <!-- ../ch4/readme.html -->
+                            <a rel="next" href="../ch4/readme.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../ch2/readme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                
+                    <a rel="next" href="../ch4/readme.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../static/wabook/mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+            var pagePath = "ch3/readme.md"
+        </script>
+
+        <!-- Custom JS scripts -->
+        
+            <script src="../static/wabook/giscus.js" type="text/javascript" charset="utf-8"></script>
+        
+
+    </body>
+</html>

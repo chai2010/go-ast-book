@@ -1,0 +1,475 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using https://github.com/wa-lang/wabook -->
+        <meta charset="UTF-8">
+        <title>第9章 复合表达式 - Go语言定制指南</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../static/wabook/css/variables.css">
+        <link rel="stylesheet" href="../static/wabook/css/general.css">
+        <link rel="stylesheet" href="../static/wabook/css/chrome.css">
+        <link rel="stylesheet" href="../static/wabook/css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../static/wabook/FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../static/wabook/fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../static/wabook/highlight.css">
+        <link rel="stylesheet" href="../static/wabook/tomorrow-night.css">
+        <link rel="stylesheet" href="../static/wabook/ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('wabook-theme');
+                var sidebar = localStorage.getItem('wabook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('wabook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('wabook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('wabook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('wabook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter">
+  <li class="chapter-item expanded ">
+    <a href="../index.html" >Go语言定制指南</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../preface.html" >前言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch1/readme.html" ><strong aria-hidden="true">1.</strong> 第1章 记号</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch2/readme.html" ><strong aria-hidden="true">2.</strong> 第2章 基础面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch3/readme.html" ><strong aria-hidden="true">3.</strong> 第3章 基础表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch4/readme.html" ><strong aria-hidden="true">4.</strong> 第4章 代码结构</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch5/readme.html" ><strong aria-hidden="true">5.</strong> 第5章 通用声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch6/readme.html" ><strong aria-hidden="true">6.</strong> 第6章 函数声明</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch7/readme.html" ><strong aria-hidden="true">7.</strong> 第7章 复合类型</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch8/readme.html" ><strong aria-hidden="true">8.</strong> 第8章 复合面值</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch9/readme.html" class="active"><strong aria-hidden="true">9.</strong> 第9章 复合表达式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch10/readme.html" ><strong aria-hidden="true">10.</strong> 第10章 语句块和语句</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch11/readme.html" ><strong aria-hidden="true">11.</strong> 第11章 类型检查</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch12/readme.html" ><strong aria-hidden="true">12.</strong> 第12章 语义信息</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch13/readme.html" ><strong aria-hidden="true">13.</strong> 第13章 SSA形式</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch14/readme.html" ><strong aria-hidden="true">14.</strong> 第14章 凹语言</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch15/readme.html" ><strong aria-hidden="true">15.</strong> 第15章 LLVM简介</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../ch16/readme.html" ><strong aria-hidden="true">16.</strong> 第16章 LLVM实例</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/a-goyacc/readme.html" >附录A goyacc</a>
+  </li>
+  <li class="chapter-item expanded ">
+    <a href="../appendix/b-antlr4/readme.html" >附录B ANTLR4</a>
+  </li>
+</ol>
+
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title"><a href="../index.html">Go语言定制指南</a></h1>
+
+                    <div class="right-buttons">
+                        <a href="https://github.com/chai2010/go-ast-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/chai2010/go-ast-book/edit/master/ch9/readme.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <!-- Page table of contents -->
+                    <div class="sidetoc"><nav class="pagetoc"></nav></div>
+
+                    <main>
+                        <ul dir="auto"><li><em>凹语言(Go实现, 面向WASM设计): <a href="https://github.com/wa-lang/wa">https://github.com/wa-lang/wa</a></em></li><li><em>WaBook(Go语言实现的MD电子书构建工具): <a href="https://github.com/wa-lang/wabook">https://github.com/wa-lang/wabook</a></em></li></ul><hr>
+
+                        <h1>第9章 复合表达式</h1>
+<p>在基础面值和基础表达式章节，我们已经见过一些简单的表达式。本章我们将继续讨论复杂表达式，包含基于复杂面值和点号选择运算、索引运算、切片运算和函数调用等相互组合而成的表达式。</p>
+<h2>9.1 表达式语法</h2>
+<p>简单来说，表达式是指所有可以产生一个值的语句的集合。表达式的语法由PrimaryExpr定义：</p>
+<pre><code>PrimaryExpr = Operand
+            | Conversion
+            | MethodExpr
+            | PrimaryExpr Selector
+            | PrimaryExpr Index
+            | PrimaryExpr Slice
+            | PrimaryExpr TypeAssertion
+            | PrimaryExpr Arguments
+            .
+
+Selector       = &quot;.&quot; identifier .
+Index          = &quot;[&quot; Expression &quot;]&quot; .
+Slice          = &quot;[&quot; [ Expression ] &quot;:&quot; [ Expression ] &quot;]&quot; 
+               | &quot;[&quot; [ Expression ] &quot;:&quot; Expression &quot;:&quot; Expression &quot;]&quot; .
+
+TypeAssertion  = &quot;.&quot; &quot;(&quot; Type &quot;)&quot; .
+Arguments      = &quot;(&quot; [ ( ExpressionList | Type [ &quot;,&quot; ExpressionList ] ) [ &quot;...&quot; ] [ &quot;,&quot; ] ] &quot;)&quot; .
+</code></pre>
+<p>其中Operand是由一元或二元算术运算符组成的算术运算表达式。Conversion是强制类型转换，形式和函数调用有一定的相似性。MethodExpr是方法表达式。然后是点选择运算、索引运算、切片运算、类型断言和函数调用参数等高阶运算符。</p>
+<h2>9.2 转型和函数调用</h2>
+<p>二元算术运算符我们已经讲过，因此我们从转型操作和函数调用开始。下面是转型操作和函数参数的语法规范：</p>
+<pre><code>Conversion = Type &quot;(&quot; Expression [ &quot;,&quot; ] &quot;)&quot; .
+Arguments  = &quot;(&quot; [ ( ExpressionList | Type [ &quot;,&quot; ExpressionList ] ) [ &quot;...&quot; ] [ &quot;,&quot; ] ] &quot;)&quot; .
+</code></pre>
+<p>需要注意的是转型操作和只有一个参数的函数调用非常相似，但是转型操作是以一个类型开始（函数调用是以一个函数开始），然后小括号内是要转型的表达式。下面的例子是将x变量转型为int类型：</p>
+<pre><code class="language-go">int(x)
+</code></pre>
+<p>如果int被重新定义为一个函数，那么转型操作就会变成函数调用。我们先看看转型操作的语法树是如何表示的：</p>
+<pre><code class="language-go">func main() {
+	expr, _ := parser.ParseExpr(`int(x)`)
+	ast.Print(nil, expr)
+}
+</code></pre>
+<p>输出的语法树如下：</p>
+<pre><code> 0  *ast.CallExpr {
+ 1  .  Fun: *ast.Ident {
+ 2  .  .  NamePos: 1
+ 3  .  .  Name: &quot;int&quot;
+ 4  .  .  Obj: *ast.Object {
+ 5  .  .  .  Kind: bad
+ 6  .  .  .  Name: &quot;&quot;
+ 7  .  .  }
+ 8  .  }
+ 9  .  Lparen: 4
+10  .  Args: []ast.Expr (len = 1) {
+11  .  .  0: *ast.Ident {
+12  .  .  .  NamePos: 5
+13  .  .  .  Name: &quot;x&quot;
+14  .  .  .  Obj: *(obj @ 4)
+15  .  .  }
+16  .  }
+17  .  Ellipsis: 0
+18  .  Rparen: 6
+19  }
+</code></pre>
+<p>转型操作居然是用<code>ast.CallExpr</code>表示，这说明在语法树中转型和函数调用的结构是完全一样的。这是因为在语法树解析阶段，解析器并不知道<code>int(x)</code>中的<code>int</code>是一个类型还是一个函数，因此也无法知晓这是一个转型操作还是一个函数调用。</p>
+<p><code>ast.CallExpr</code>结构体定义如下：</p>
+<pre><code class="language-go">type CallExpr struct {
+	Fun      Expr      // function expression
+	Lparen   token.Pos // position of &quot;(&quot;
+	Args     []Expr    // function arguments; or nil
+	Ellipsis token.Pos // position of &quot;...&quot; (token.NoPos if there is no &quot;...&quot;)
+	Rparen   token.Pos // position of &quot;)&quot;
+}
+</code></pre>
+<p>其中Fun如果是类型表达式，则表示这是一个转型操作。Fun之所以被定义为一个表达式，是因为Go语言中函数是第一类对象，可以像普通值一样被传递，通过表达式可以获取结构体、数组或map中保存的函数。而Args参数部分表示要转型的表达式或者是函数调用的参数列表。如果是函数调用，并且是可变参数函数调用，那么Ellipsis表示省略号位置（否则是一个无效的位置）。</p>
+<h2>9.3 点选择运算</h2>
+<p>点选择运算主要用于结构体选择其成员，或者是对象选择其方法。点选择运算语法如下：</p>
+<pre><code>PrimaryExpr = PrimaryExpr Selector .
+Selector    = &quot;.&quot; identifier .
+</code></pre>
+<p>如果有表达式<code>x</code>，则可以通过<code>x.y</code>访问其成员或方法函数。如果是<code>x</code>导入包，那么<code>x.y</code>将变成标识符含义。同样，在语法树解析阶段并无法区分一个选择表达式和导入包中的标识符。</p>
+<p>下面是<code>x.y</code>解析的语法树结果：</p>
+<pre><code> 0  *ast.SelectorExpr {
+ 1  .  X: *ast.Ident {
+ 2  .  .  NamePos: 1
+ 3  .  .  Name: &quot;x&quot;
+ 4  .  .  Obj: *ast.Object {
+ 5  .  .  .  Kind: bad
+ 6  .  .  .  Name: &quot;&quot;
+ 7  .  .  }
+ 8  .  }
+ 9  .  Sel: *ast.Ident {
+10  .  .  NamePos: 3
+11  .  .  Name: &quot;y&quot;
+12  .  }
+13  }
+</code></pre>
+<p>其中X成员表示主体、Sel是被选择的成员（也可能是其它包的标识符）。<code>ast.SelectorExpr</code>结构体定义如下：</p>
+<pre><code class="language-go">type SelectorExpr struct {
+	X   Expr   // expression
+	Sel *Ident // field selector
+}
+</code></pre>
+<p>其中X被定义为ast.Expr表达式类型，Sel是一个普通的标识符。</p>
+<h2>9.4 索引运算</h2>
+<p>索引运算主要用于数组、切片或map选择元素，其语法规范如下：</p>
+<pre><code>PrimaryExpr = PrimaryExpr Index .
+Index       = &quot;[&quot; Expression &quot;]&quot; .
+</code></pre>
+<p>索引运算通过在主体表达式后面的中括弧中包含索引表达式。同样在语法树解析阶段无法区别索引运算主体的具体类型。下面是<code>x[y]</code>索引运算的语法树解析结果：</p>
+<pre><code> 0  *ast.IndexExpr {
+ 1  .  X: *ast.Ident {
+ 2  .  .  NamePos: 1
+ 3  .  .  Name: &quot;x&quot;
+ 4  .  .  Obj: *ast.Object {
+ 5  .  .  .  Kind: bad
+ 6  .  .  .  Name: &quot;&quot;
+ 7  .  .  }
+ 8  .  }
+ 9  .  Lbrack: 2
+10  .  Index: *ast.Ident {
+11  .  .  NamePos: 3
+12  .  .  Name: &quot;y&quot;
+13  .  .  Obj: *(obj @ 4)
+14  .  }
+15  .  Rbrack: 4
+16  }
+</code></pre>
+<p>其中X是主体表达式，其中的标识符是x。而Index为索引表达式，在这个例子中是y。<code>ast.IndexExpr</code>结构体定义如下：</p>
+<pre><code class="language-go">type IndexExpr struct {
+	X      Expr      // expression
+	Lbrack token.Pos // position of &quot;[&quot;
+	Index  Expr      // index expression
+	Rbrack token.Pos // position of &quot;]&quot;
+}
+</code></pre>
+<p>其中X和Index成员都是表达式，具体的语义需要根据上下文判断X表达式的类型才能决定Index索引表达式的类型。</p>
+<h2>9.5 切片运算</h2>
+<p>切片运算是在数组或切片基础上生成新的切片，其语法规范如下：</p>
+<pre><code>PrimaryExpr =  PrimaryExpr Slice
+Slice       = &quot;[&quot; [ Expression ] &quot;:&quot; [ Expression ] &quot;]&quot; 
+            | &quot;[&quot; [ Expression ] &quot;:&quot; Expression &quot;:&quot; Expression &quot;]&quot;
+            .
+</code></pre>
+<p>切片运算也是在一个主体表达式之后的中括弧中表示，不过切片运算至少有一个冒号分隔符，或者是两个冒号分隔符。切片运算主要包含开始索引、结束索引和最大范围三个部分。下面是<code>x[1:2:3]</code>切片运算的语法树：</p>
+<pre><code> 0  *ast.SliceExpr {
+ 1  .  X: *ast.Ident {
+ 2  .  .  NamePos: 1
+ 3  .  .  Name: &quot;x&quot;
+ 4  .  .  Obj: *ast.Object {
+ 5  .  .  .  Kind: bad
+ 6  .  .  .  Name: &quot;&quot;
+ 7  .  .  }
+ 8  .  }
+ 9  .  Lbrack: 2
+10  .  Low: *ast.BasicLit {
+11  .  .  ValuePos: 3
+12  .  .  Kind: INT
+13  .  .  Value: &quot;1&quot;
+14  .  }
+15  .  High: *ast.BasicLit {
+16  .  .  ValuePos: 5
+17  .  .  Kind: INT
+18  .  .  Value: &quot;2&quot;
+19  .  }
+20  .  Max: *ast.BasicLit {
+21  .  .  ValuePos: 7
+22  .  .  Kind: INT
+23  .  .  Value: &quot;3&quot;
+24  .  }
+25  .  Slice3: true
+26  .  Rbrack: 8
+27  }
+</code></pre>
+<p>切片运算通过<code>ast.SliceExpr</code>结构体表示，其中X、Low、High、Max分别表示切片运算的主体、开始索引、结束索引和最大范围。<code>ast.SliceExpr</code>结构体定义如下：</p>
+<pre><code class="language-go">type SliceExpr struct {
+	X      Expr      // expression
+	Lbrack token.Pos // position of &quot;[&quot;
+	Low    Expr      // begin of slice range; or nil
+	High   Expr      // end of slice range; or nil
+	Max    Expr      // maximum capacity of slice; or nil
+	Slice3 bool      // true if 3-index slice (2 colons present)
+	Rbrack token.Pos // position of &quot;]&quot;
+}
+</code></pre>
+<p>其中X、Low、High、Max是我们已经熟悉的成员，都是表达式类型。另外Slice3标注是否为三索引的切片语法（不过这个字段对语义没有影响，因为可以从Max程序推导出最大的容量信息）。</p>
+<h2>9.6 类型断言</h2>
+<p>类型断言是判断一个接口对象是否满足另一个接口、或者接口持有的对象是否是一个确定的非接口类型。类型断言的语法规范如下：</p>
+<pre><code>PrimaryExpr    = PrimaryExpr TypeAssertion .
+TypeAssertion  = &quot;.&quot; &quot;(&quot; Type &quot;)&quot; .
+</code></pre>
+<p>在主体表达式之后通过点选择一个类型，类型放在小括弧中间。比如<code>x.(y)</code>就是将x接口断言为y接口或y类型，下面是它们的语法树：</p>
+<pre><code> 0  *ast.TypeAssertExpr {
+ 1  .  X: *ast.Ident {
+ 2  .  .  NamePos: 1
+ 3  .  .  Name: &quot;x&quot;
+ 4  .  .  Obj: *ast.Object {
+ 5  .  .  .  Kind: bad
+ 6  .  .  .  Name: &quot;&quot;
+ 7  .  .  }
+ 8  .  }
+ 9  .  Lparen: 3
+10  .  Type: *ast.Ident {
+11  .  .  NamePos: 4
+12  .  .  Name: &quot;y&quot;
+13  .  .  Obj: *(obj @ 4)
+14  .  }
+15  .  Rparen: 5
+16  }
+</code></pre>
+<p>断言运算由<code>ast.TypeAssertExpr</code>表示，其中X是接口表达式，Type是要断言的类型表达式。<code>ast.TypeAssertExpr</code>结构体的定义如下：</p>
+<pre><code class="language-go">type TypeAssertExpr struct {
+	X      Expr      // expression
+	Lparen token.Pos // position of &quot;(&quot;
+	Type   Expr      // asserted type; nil means type switch X.(type)
+	Rparen token.Pos // position of &quot;)&quot;
+}
+</code></pre>
+<p>需要注意的是<code>x.(type)</code>也是一种特殊的类型断言，这时候<code>ast.TypeAssertExpr.Type</code>成员值为nil，对应的是类型switch语句结构。</p>
+<h2>9.7 小结</h2>
+<p>此处我们已经学习了基于各种基础类型、复合类型的各种表达式基础构件，通过组合这些运算就能产生各种复杂的表达式。最终将表达式的结果通过和赋值语句或控制流语句相结合，就可以改成程序的环境状态。而编程的本质就是通过语句改变成员的状态，然后在根据不同的状态选择执行不同的语句。</p>
+
+
+                        
+
+                        
+                            <div id="giscus-container"></div>
+                        
+
+                        
+                            <footer class="page-footer">
+                                <span>© 2019-2022 | <a href="https://github.com/chai2010/go-ast-book">柴树杉、史斌、丁尔男</a> 保留所有权利</span>
+                            </footer>
+                        
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../ch8/readme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                        
+                            <!-- ../ch10/readme.html -->
+                            <a rel="next" href="../ch10/readme.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../ch8/readme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                
+                    <a rel="next" href="../ch10/readme.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../static/wabook/mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../static/wabook/book.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script type="text/javascript" charset="utf-8">
+            var pagePath = "ch9/readme.md"
+        </script>
+
+        <!-- Custom JS scripts -->
+        
+            <script src="../static/wabook/giscus.js" type="text/javascript" charset="utf-8"></script>
+        
+
+    </body>
+</html>
