@@ -1,6 +1,7 @@
 # 《Go语言定制指南》（原名：Go语法树入门）
 
 - *凹语言(专为 WebAssembly 设计): https://github.com/wa-lang/wa*
+- *WaBook(Go语言实现的MD电子书构建工具): https://github.com/wa-lang/wabook*
 
 ----
 
