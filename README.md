@@ -25,13 +25,13 @@ Go语法树是Go语言源文件的另一种语义等价的表现形式。而Go�
 
 - https://book.douban.com/subject/35852237
 
-# MnBook 构建(纯Go语言实现)
+# waBook 构建(纯Go语言实现)
 
 增加了基于 Github 的 [留言功能](https://giscus.app) 构建:
 
-- https://github.com/wa-lang/mnBook
+- https://github.com/wa-lang/waBook
 
-然后执行 `mnbook serve` 本地打开服务，或者 `mnbook build` 构建。
+然后执行 `wabook serve` 本地打开服务，或者 `wabook build` 构建。
 
 # 微信公众号
 
